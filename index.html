@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <style>
+    .gap-half {
+      grid-gap: 0.5rem;
+    }
+
+    .gap-1 {
+      grid-gap: 1rem;
+    }
+
+    .gap-2 {
+      grid-gap: 2rem;
+    }
+
+    .gap-3 {
+      grid-gap: 3rem;
+    }
+
+    .scrim {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      padding: 1em 2em;
+    }
+
+    .scrim::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+      z-index: -1;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .tile {}
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <v-app>
+      <v-main>
+        <v-container v-if="latest" class="d-flex flex-column gap-3">
+          <div>
+            <h5 class="text-h5 mb-1">Results:</h5>
+            <stats :source="latest"></stats>
+          </div>
+
+          <template v-for="apt in latest.apartments">
+            <div class="d-flex flex-column gap-1">
+              <h6 class=" text-h6">{{ apt.name }}</h6>
+              <stats :source="apt"></stats>
+              <div class="d-flex gap-1">
+                <v-card v-for='image in apt.images'>
+                  <v-img :src="image" :key="image" height="200" width="300"></v-img>
+                </v-card>
+              </div>
+              <h6 class="text-h6">Available Units</h6>
+              <div class="d-flex gap-1">
+                <template v-for="plan in apt.plans">
+                  <v-card v-for="unit in plan.units" light>
+                    <v-card-title>{{ unit.price | currency }}</v-card-title>
+                    <v-card-subtitle class="pb-0">{{ unit.sqft }} sqft</v-card-subtitle>
+                    <v-card-subtitle class="pt-0 text-subtitle-2">
+                      {{ plan.name }} &bull; Available {{ unit.available }}
+                    </v-card-subtitle>
+                  </v-card>
+                </template>
+              </div>
+            </div>
+          </template>
+        </v-container>
+      </v-main>
+    </v-app>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <script>
+    Vue.filter('currency', function (value) {
+      if (typeof value !== "number") {
+        return value;
+      }
+      return value.toLocaleString('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0
+      });
+    });
+
+    Vue.component('stats', {
+      name: 'stats',
+      props: ['source'],
+      template: `
+      <div class="d-flex gap-1">
+        <div>
+          <h5 class="text-h5">{{source.min_price | currency}}</h5>
+          <p class="text-subtitle-2 mb-0">Minimum overall rent</p>
+        </div>
+        <div>
+          <h5 class="text-h5">{{source.max_price | currency}}</h5>
+          <p class="text-subtitle-2 mb-0">Maximum overall rent</p>
+        </div>
+        <div>
+          <h5 class="text-h5">{{source.average_price | currency}}</h5>
+          <p class="text-subtitle-2 mb-0">Average overall rent</p>
+        </div>
+      </div>
+      `
+    })
+
+    new Vue({
+      el: '#app',
+      vuetify: new Vuetify(),
+      data: () => ({
+        results: {},
+      }),
+      computed: {
+        latest() {
+          const entries = Object.keys(this.results).sort();
+          return this.results[entries[0]];
+        }
+      },
+      mounted() {
+        // Get local data from results.json
+        fetch('results.json')
+          .then(response => response.json())
+          .then(data => {
+            this.results = data;
+          });
+      }
+    })
+  </script>
+</body>
+
+</html>
