@@ -1,15 +1,35 @@
 from bs4 import BeautifulSoup
 import requests
 import json
+import datetime
+
+AREA = 'south-end-charlotte-nc'
+BEDROOMS = 1
+MAX_PRICE = 1600
+MIN_SQFT = 600
+BLACKLIST = [
+  'Centro Square',
+  'Timber Creek',
+  'Arbor Village',
+  'Presley Uptown',
+  'MAA Reserve',
+  'MAA 1225',
+  'MAA Gateway',
+  'ARIUM FreeMoreWest',
+  'Arlo',
+  'The Bryant Apartments',
+  'The Griff',
+  'Gateway West',
+]
+FAVORITES = []
 
 http = requests.session()
 http.headers.update({
   'User-Agent': 'Mozilla/5.0'
 })
-  
 
-def build_url(query='south-end-charlotte-nc', max_price='1650', bedrooms='1'):
-  return f'https://www.apartments.com/{query}/min-{bedrooms}-bedrooms-under-{max_price}-pet-friendly-cat/'
+def build_url():
+  return f'https://www.apartments.com/{AREA}/min-{BEDROOMS}-bedrooms-under-{MAX_PRICE}-pet-friendly-cat/'
 
 def get_soup(url):
   r = http.get(url)
@@ -33,13 +53,15 @@ def get_text(soup, tag, class_):
 
 # Scrape apartments.com for apartments
 def get_apts():
-  print('Getting apartments list...')
+  print('Fetching apartments list...')
   
   url = build_url()
   
   # Parse the HTML
   soup = get_soup(url)
   apartments = soup.find_all('article', class_='placard')
+  
+  print(f'Fetched {len(apartments)} apartments')
   
   # Get the data from each list item
   results = []
@@ -52,6 +74,10 @@ def get_apts():
     detail = get_soup(detail_url)
     
     name = detail.find(id='propertyName').text.strip()
+    prices = []
+    
+    if name in BLACKLIST:
+      continue
     
     print('Fetched details for', name)
     
@@ -80,75 +106,59 @@ def get_apts():
         sqft = int(get_text(unit, 'div', 'sqftColumn column').replace(',', ''))
         available = get_text(unit, 'span', 'dateAvailable')
         
-        units_out.append({
-          'number': number,
-          'price': price,
-          'sqft': sqft,
-          'available': available,
-        })
+        if (sqft >= MIN_SQFT and price <= MAX_PRICE):
+          prices.append(price)
+          units_out.append({
+            'number': number,
+            'price': price,
+            'sqft': sqft,
+            'available': available,
+          })
+      
+      if len(units_out) == 0:
+        continue
       
       plans_out.append({
         'name': plan_name,
         'units': units_out,
       })
-      
+    
+    if len(prices) == 0:
+      continue
+    
     results.append({
       'name': name,
       'address': address,
-      'plans': plans_out,
+      'average_price': round(sum(prices) / len(prices), 2),
+      'min_price': min(prices),
+      'max_price': max(prices),
+      'url': detail_url,
       'images': images,
+      'plans': plans_out,
     })
   
-  return results
+  return sorted(results, key=lambda x: (x['name'] not in FAVORITES, x['min_price']))
 
 
-MAX_PRICE = 1650
-MIN_SQFT = 570
-BLACKLIST = [
-  'Centro Square',
-  'Timber Creek',
-  'Arbor Village',
-  'Presley Uptown',
-  'MAA Reserve',
-  'MAA 1225',
-  'MAA Gateway',
-  'ARIUM FreeMoreWest',
-  'Arlo',
-  'The Bryant Apartments',
-  'The Griff',
-  'Gateway West',
-]
-FAVORITES = []
+matches = get_apts()
 
-def find_matches():
-  apts = get_apts()
+max_price = max([x['max_price'] for x in matches])
+min_price = min([x['min_price'] for x in matches])
+average_price = sum([x['average_price'] for x in matches]) / len(matches)
+average_price = round(average_price, 2)
+
+with open('results.json', 'r+') as f:
+  data = json.load(f)
+
+  now = datetime.datetime.now().isoformat()
+  data[now] = {
+    "max_price": max_price,
+    "min_price": min_price,
+    "average_price": average_price,
+    "apartments": matches,
+  }
   
-  matches = []
-  
-  for apt in apts:
-    for plan in apt['plans']:
-      for unit in plan['units']:
-        matches_price = unit['price'] <= MAX_PRICE
-        matches_sqft = unit['sqft'] >= MIN_SQFT
-        not_blacklisted = apt['name'] not in BLACKLIST
-        
-        if matches_price and matches_sqft and not_blacklisted:
-          matches.append({
-            'name': apt['name'],
-            'address': apt['address'],
-            'plan': plan['name'],
-            'unit': unit['number'],
-            'price': unit['price'],
-            'sqft': unit['sqft'],
-            'available': unit['available'],
-          })
-          
-  # Sort by favorited then price
-  matches = sorted(matches, key=lambda x: (x['name'] not in FAVORITES, x['price']))
-          
-  return matches
-
-results = json.dumps(find_matches(), indent=2)
-# Save to json file
-with open('results.json', 'w') as f:
-  f.write(results)
+  f.seek(0)
+  json.dump(data, f, indent=2)
+  f.truncate()
+  f.close()
