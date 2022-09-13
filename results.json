@@ -1,0 +1,146 @@
+[
+  {
+    "name": "Lincoln at Dilworth",
+    "address": "905 Kenilworth Ave, Charlotte, NC 28204",
+    "plan": "A2h",
+    "unit": "431",
+    "price": 1527,
+    "sqft": 670,
+    "available": "Now"
+  },
+  {
+    "name": "Lincoln at Dilworth",
+    "address": "905 Kenilworth Ave, Charlotte, NC 28204",
+    "plan": "A4i",
+    "unit": "102",
+    "price": 1532,
+    "sqft": 650,
+    "available": "Now"
+  },
+  {
+    "name": "Berkshire Dilworth",
+    "address": "1351 E Morehead St, Charlotte, NC 28204",
+    "plan": "Iverson ADA accessible",
+    "unit": "243",
+    "price": 1547,
+    "sqft": 631,
+    "available": "Now"
+  },
+  {
+    "name": "Lincoln at Dilworth",
+    "address": "905 Kenilworth Ave, Charlotte, NC 28204",
+    "plan": "A2g",
+    "unit": "485",
+    "price": 1567,
+    "sqft": 710,
+    "available": "Now"
+  },
+  {
+    "name": "Lincoln at Dilworth",
+    "address": "905 Kenilworth Ave, Charlotte, NC 28204",
+    "plan": "A4g",
+    "unit": "106",
+    "price": 1572,
+    "sqft": 700,
+    "available": "Now"
+  },
+  {
+    "name": "Lincoln at Dilworth",
+    "address": "905 Kenilworth Ave, Charlotte, NC 28204",
+    "plan": "A4g",
+    "unit": "206",
+    "price": 1572,
+    "sqft": 700,
+    "available": "Now"
+  },
+  {
+    "name": "Lincoln at Dilworth",
+    "address": "905 Kenilworth Ave, Charlotte, NC 28204",
+    "plan": "A4i",
+    "unit": "402",
+    "price": 1582,
+    "sqft": 650,
+    "available": "Now"
+  },
+  {
+    "name": "Three30Five",
+    "address": "335 Doggett St, Charlotte, NC 28203",
+    "plan": "Pike",
+    "unit": "429",
+    "price": 1584,
+    "sqft": 715,
+    "available": "Oct. 20"
+  },
+  {
+    "name": "Three30Five",
+    "address": "335 Doggett St, Charlotte, NC 28203",
+    "plan": "Pike",
+    "unit": "440",
+    "price": 1589,
+    "sqft": 626,
+    "available": "Now"
+  },
+  {
+    "name": "Three30Five",
+    "address": "335 Doggett St, Charlotte, NC 28203",
+    "plan": "Luciano",
+    "unit": "229",
+    "price": 1594,
+    "sqft": 715,
+    "available": "Nov. 16"
+  },
+  {
+    "name": "Lincoln at Dilworth",
+    "address": "905 Kenilworth Ave, Charlotte, NC 28204",
+    "plan": "A4h",
+    "unit": "564",
+    "price": 1597,
+    "sqft": 660,
+    "available": "Now"
+  },
+  {
+    "name": "The Mint 425",
+    "address": "425 W Trade St, Charlotte, NC 28202",
+    "plan": "1ER",
+    "unit": "403",
+    "price": 1609,
+    "sqft": 786,
+    "available": "Dec. 1"
+  },
+  {
+    "name": "Lincoln at Dilworth",
+    "address": "905 Kenilworth Ave, Charlotte, NC 28204",
+    "plan": "A4c",
+    "unit": "534",
+    "price": 1627,
+    "sqft": 695,
+    "available": "Sep. 28"
+  },
+  {
+    "name": "Lincoln at Dilworth",
+    "address": "905 Kenilworth Ave, Charlotte, NC 28204",
+    "plan": "A4c",
+    "unit": "530",
+    "price": 1633,
+    "sqft": 695,
+    "available": "Oct. 7"
+  },
+  {
+    "name": "Lincoln at Dilworth",
+    "address": "905 Kenilworth Ave, Charlotte, NC 28204",
+    "plan": "A6b",
+    "unit": "419",
+    "price": 1637,
+    "sqft": 730,
+    "available": "Now"
+  },
+  {
+    "name": "Midtown 205",
+    "address": "205 S Kings Dr, Charlotte, NC 28204",
+    "plan": "A3",
+    "unit": "248",
+    "price": 1641,
+    "sqft": 730,
+    "available": "Oct. 14"
+  }
+]
