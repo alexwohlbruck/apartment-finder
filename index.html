@@ -76,11 +76,6 @@
             <div class="d-flex flex-column gap-1">
               <a class="text-h6" :href="apt.url" target="_blank">{{ apt.name }}</a>
               <stats :source="apt"></stats>
-              <div class="d-flex gap-1">
-                <v-card v-for='image in apt.images'>
-                  <v-img :src="image" :key="image" height="30vh" width="25vw"></v-img>
-                </v-card>
-              </div>
               <h6 class="text-h6">Available Units</h6>
               <div class="d-flex gap-1">
                 <template v-for="plan in apt.plans">
@@ -92,6 +87,11 @@
                     <v-card-subtitle class="pt-0">Plan {{ plan.name }} &bull; {{ unit.sqft }} sqft</v-card-subtitle>
                   </v-card>
                 </template>
+              </div>
+              <div class="d-flex gap-1">
+                <v-card v-for='image in apt.images'>
+                  <v-img :src="image" :key="image" height="30vh" width="25vw"></v-img>
+                </v-card>
               </div>
             </div>
           </template>
