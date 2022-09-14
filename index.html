@@ -23,6 +23,10 @@
       grid-gap: 3rem;
     }
 
+    .flex-1 {
+      flex: 1;
+    }
+
     .scrim {
       position: absolute;
       bottom: 0;
@@ -57,13 +61,18 @@
       <v-main>
         <v-container v-if="latest" class="d-flex flex-column gap-3">
           <div>
-            <h5 class="text-h5 mb-1">Results:</h5>
-            <stats :source="latest"></stats>
+            <h6 class="text-h6 mb-1">Results:</h6>
+            <stats :source="latest" :overall="true"></stats>
+          </div>
+
+          <div class="d-flex gap-1">
+            <minmaxavg :data="results" class="flex-1"></minmaxavg>
+            <pricevssqft :data="results" class="flex-1"></pricevssqft>
           </div>
 
           <template v-for="apt in latest.apartments">
             <div class="d-flex flex-column gap-1">
-              <h6 class=" text-h6">{{ apt.name }}</h6>
+              <a class="text-h6" :href="apt.url" target="_blank">{{ apt.name }}</a>
               <stats :source="apt"></stats>
               <div class="d-flex gap-1">
                 <v-card v-for='image in apt.images'>
@@ -91,6 +100,10 @@
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+  <script src="https://unpkg.com/vue-chartjs@3.5.1/dist/vue-chartjs.js"></script>
   <script>
     Vue.filter('currency', function (value) {
       if (typeof value !== "number") {
@@ -106,24 +119,158 @@
 
     Vue.component('stats', {
       name: 'stats',
-      props: ['source'],
+      props: {
+        source: Object,
+        overall: Boolean,
+      },
+      computed: {
+        text() {
+          return this.overall ? 'overall rent' : 'rent'
+        },
+      },
       template: `
       <div class="d-flex gap-1">
         <div>
           <h5 class="text-h5">{{source.min_price | currency}}</h5>
-          <p class="text-subtitle-2 mb-0">Minimum overall rent</p>
+          <p class="text-subtitle-2 mb-0">Minimum {{text}}</p>
         </div>
         <div>
           <h5 class="text-h5">{{source.max_price | currency}}</h5>
-          <p class="text-subtitle-2 mb-0">Maximum overall rent</p>
+          <p class="text-subtitle-2 mb-0">Maximum {{text}}</p>
         </div>
         <div>
           <h5 class="text-h5">{{source.average_price | currency}}</h5>
-          <p class="text-subtitle-2 mb-0">Average overall rent</p>
+          <p class="text-subtitle-2 mb-0">Average {{text}}</p>
         </div>
       </div>
       `
     })
+
+    Vue.component("minmaxavg", {
+      extends: VueChartJs.Line,
+      props: {
+        data: Object,
+      },
+      mounted() {
+        const min = [];
+        const max = [];
+        const average = [];
+        Object.keys(this.data).forEach(timestamp => {
+          const snapshot = this.data[timestamp];
+          min.push({
+            x: timestamp,
+            y: snapshot.min_price,
+          });
+          max.push({
+            x: timestamp,
+            y: snapshot.max_price,
+          });
+          average.push({
+            x: timestamp,
+            y: snapshot.average_price,
+          });
+        });
+
+        this.renderChart(
+          {
+            datasets: [
+              {
+                label: "Minimum price",
+                borderColor: "#FF4A4A",
+                data: min,
+                fill: false,
+              },
+              {
+                label: "Maximum price",
+                borderColor: "#6FEDD6",
+                data: max,
+                fill: false,
+              },
+              {
+                label: "Average price",
+                borderColor: "#FF9551",
+                data: average,
+                fill: false,
+              },
+            ],
+          },
+          {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              xAxes: [
+                {
+                  type: "time",
+                  time: {
+                    displayFormats: {
+                      quarter: "MMM YYYY",
+                    }
+                  },
+                },
+              ],
+            },
+          }
+        );
+      },
+    });
+
+    Vue.component("pricevssqft", {
+      extends: VueChartJs.Scatter,
+      props: {
+        data: Object,
+      },
+      mounted() {
+        const points = [];
+        const snapshot = this.data[Object.keys(this.data)[0]];
+        snapshot.apartments.forEach(apt => {
+          apt.plans.forEach(plan => {
+            plan.units.forEach(unit => {
+              points.push({
+                x: unit.sqft,
+                y: unit.price,
+                label: `${apt.name} - ${plan.name} - ${unit.number}`,
+              });
+            });
+          });
+        });
+
+        // add labels
+        this.renderChart(
+          {
+            datasets: [
+              {
+                label: "Price vs. Sqft",
+                borderColor: "#2F4DD6",
+                data: points,
+                pointRadius: 3,
+                pointHoverRadius: 8,
+                pointBackgroundColor: "#2F4DD6",
+              },
+            ],
+          },
+          {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              xAxes: [
+                {
+                  label: "Sqft",
+                  type: "linear",
+                  position: "bottom",
+                },
+              ],
+              yAxes: [
+                {
+                  label: "Price",
+                  type: "linear",
+                  position: "left",
+                },
+              ],
+            },
+          },
+        );
+      },
+    });
 
     new Vue({
       el: '#app',

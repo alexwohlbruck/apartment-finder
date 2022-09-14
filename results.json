@@ -91,5 +91,124 @@
         ]
       }
     ]
+  },
+  "2022-09-13T19:52:17.507981": {
+    "max_price": 1597,
+    "min_price": 1420,
+    "average_price": 1513.0,
+    "apartments": [
+      {
+        "name": "Asbury Flats",
+        "address": "910 Walnut Ave, Charlotte, NC 28208",
+        "average_price": 1420.0,
+        "min_price": 1420,
+        "max_price": 1420,
+        "url": "https://www.apartments.com/asbury-flats-charlotte-nc/trmk04c/",
+        "images": [
+          "https://images1.apartments.com/i2/lVoCiqbg_Z6M4yXmv_0-1IUMnGU0vrRK2enKTd_lGh8/111/asbury-flats-charlotte-nc-primary-photo.jpg?p=1",
+          "https://images1.apartments.com/m2/n2Sj8pwF_x3iQKN3WOwZ79bfl2pIyinP401E2JGCTcA/H330W495/asbury-flats-charlotte-nc-map-image-of-the-property.jpg?p=1",
+          "https://images1.apartments.com/i2/HjIMtSlDe3NEOYHEO6YC54UZhXcw1tBDdBsKg7ftcPA/117/asbury-flats-charlotte-nc-aerial-photo.jpg?p=1"
+        ],
+        "plans": [
+          {
+            "name": "A1",
+            "units": [
+              {
+                "number": "208",
+                "price": 1420,
+                "sqft": 735,
+                "available": "Oct. 14"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Lincoln at Dilworth",
+        "address": "905 Kenilworth Ave, Charlotte, NC 28204",
+        "average_price": 1572.0,
+        "min_price": 1542,
+        "max_price": 1597,
+        "url": "https://www.apartments.com/lincoln-at-dilworth-charlotte-nc/vvj4cmf/",
+        "images": [
+          "https://images1.apartments.com/i2/jV8n3W4M51ehIm29qf8k1dwpqLSbf-svRtlICr2LfCI/111/lincoln-at-dilworth-charlotte-nc-primary-photo.jpg?p=1",
+          "https://images1.apartments.com/m2/0XwepeDblmHUlWbtOrNJ5FkurPi8BcFDA_j_M8PjICo/H330W495/lincoln-at-dilworth-charlotte-nc-map-image-of-the-property.jpg?p=1",
+          "https://images1.apartments.com/i2/J8AQyLL382sojj15nd6cF9LZBYuabOsFg1K8xf9RbDY/117/lincoln-at-dilworth-charlotte-nc-1br-1ba.jpg?p=1"
+        ],
+        "plans": [
+          {
+            "name": "A2h",
+            "units": [
+              {
+                "number": "431",
+                "price": 1542,
+                "sqft": 670,
+                "available": "Now"
+              }
+            ]
+          },
+          {
+            "name": "A4i",
+            "units": [
+              {
+                "number": "102",
+                "price": 1547,
+                "sqft": 650,
+                "available": "Now"
+              },
+              {
+                "number": "402",
+                "price": 1597,
+                "sqft": 650,
+                "available": "Now"
+              }
+            ]
+          },
+          {
+            "name": "A4g",
+            "units": [
+              {
+                "number": "106",
+                "price": 1587,
+                "sqft": 700,
+                "available": "Now"
+              },
+              {
+                "number": "206",
+                "price": 1587,
+                "sqft": 700,
+                "available": "Now"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Berkshire Dilworth",
+        "address": "1351 E Morehead St, Charlotte, NC 28204",
+        "average_price": 1547.0,
+        "min_price": 1547,
+        "max_price": 1547,
+        "url": "https://www.apartments.com/berkshire-dilworth-charlotte-nc/k86ytbc/",
+        "images": [
+          "https://images1.apartments.com/i2/dlBj_MNYoeC-SbKzGYvdzj87TUyA3rfU0qcd3AFSBE4/111/berkshire-dilworth-charlotte-nc-primary-photo.jpg?p=1",
+          "https://images1.apartments.com/m2/rzzsjDeqke8lJLQG4Owbhl4Oxw7uj89fYCjcb--vcu4/H330W495/berkshire-dilworth-charlotte-nc-map-image-of-the-property.jpg?p=1",
+          "https://images1.apartments.com/i2/Qf_IyhSm8-o0op8LT_zkFdYabDYVb0c_ghJNwOwS80g/117/berkshire-dilworth-charlotte-nc-building-photo.jpg?p=1"
+        ],
+        "plans": [
+          {
+            "name": "Iverson ADA accessible",
+            "units": [
+              {
+                "number": "243",
+                "price": 1547,
+                "sqft": 631,
+                "available": "Now"
+              }
+            ]
+          }
+        ]
+      }
+    ]
   }
 }

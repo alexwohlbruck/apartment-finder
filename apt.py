@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 import json
 import datetime
+import schedule
 
 AREA = 'south-end-charlotte-nc'
 BEDROOMS = 1
@@ -139,26 +140,31 @@ def get_apts():
   
   return sorted(results, key=lambda x: (x['name'] not in FAVORITES, x['min_price']))
 
+def scrape_data():
+  matches = get_apts()
+  max_price = max([x['max_price'] for x in matches])
+  min_price = min([x['min_price'] for x in matches])
+  average_price = sum([x['average_price'] for x in matches]) / len(matches)
+  average_price = round(average_price, 2)
 
-matches = get_apts()
+  with open('results.json', 'r+') as f:
+    data = json.load(f)
 
-max_price = max([x['max_price'] for x in matches])
-min_price = min([x['min_price'] for x in matches])
-average_price = sum([x['average_price'] for x in matches]) / len(matches)
-average_price = round(average_price, 2)
-
-with open('results.json', 'r+') as f:
-  data = json.load(f)
-
-  now = datetime.datetime.now().isoformat()
-  data[now] = {
-    "max_price": max_price,
-    "min_price": min_price,
-    "average_price": average_price,
-    "apartments": matches,
-  }
+    now = datetime.datetime.now().isoformat()
+    data[now] = {
+      "max_price": max_price,
+      "min_price": min_price,
+      "average_price": average_price,
+      "apartments": matches,
+    }
+    
+    f.seek(0)
+    json.dump(data, f, indent=2)
+    f.truncate()
+    f.close()
   
-  f.seek(0)
-  json.dump(data, f, indent=2)
-  f.truncate()
-  f.close()
+if __name__ == '__main__':
+  scrape_data()
+  schedule.every(4).hours.do(scrape_data)
+  while True:
+    schedule.run_pending()
