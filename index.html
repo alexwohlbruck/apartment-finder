@@ -221,6 +221,20 @@
                   },
                 },
               ],
+              yAxes: [
+                {
+                  ticks: {
+                    callback: function (value, index, values) {
+                      return value.toLocaleString('en-US', {
+                        style: 'currency',
+                        currency: 'USD',
+                        minimumFractionDigits: 0,
+                        maximumFractionDigits: 0
+                      });
+                    }
+                  }
+                }
+              ]
             },
           }
         );
@@ -252,7 +266,7 @@
           {
             datasets: [
               {
-                label: "Price vs. Sqft for latest data set",
+                label: "Price vs. Size for latest data set",
                 borderColor: "#2F4DD6",
                 data: points,
                 pointRadius: 3,
@@ -267,16 +281,40 @@
             scales: {
               xAxes: [
                 {
-                  label: "Sqft",
                   type: "linear",
                   position: "bottom",
+                  scaleLabel: {
+                    display: true,
+                    labelString: "Size",
+                  },
+                  ticks: {
+                    callback: function (value, index, values) {
+                      return `${value.toLocaleString('en-US', {
+                        minimumFractionDigits: 0,
+                        maximumFractionDigits: 0
+                      })} sqft`;
+                    }
+                  },
                 },
               ],
               yAxes: [
                 {
-                  label: "Price",
                   type: "linear",
                   position: "left",
+                  scaleLabel: {
+                    display: true,
+                    labelString: "Price",
+                  },
+                  ticks: {
+                    callback: function (value, index, values) {
+                      return value.toLocaleString('en-US', {
+                        style: 'currency',
+                        currency: 'USD',
+                        minimumFractionDigits: 0,
+                        maximumFractionDigits: 0
+                      });
+                    },
+                  },
                 },
               ],
             },

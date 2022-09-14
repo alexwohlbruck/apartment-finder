@@ -3,6 +3,7 @@ import requests
 import json
 import datetime
 import schedule
+import webbrowser
 
 AREA = 'south-end-charlotte-nc'
 BEDROOMS = 1
@@ -168,6 +169,7 @@ def scrape_data():
   
 if __name__ == '__main__':
   scrape_data()
+  webbrowser.open('http://127.0.0.1:5500/index.html')
   schedule.every(4).hours.do(scrape_data)
   while True:
     schedule.run_pending()
