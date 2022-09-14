@@ -78,7 +78,7 @@
               <stats :source="apt"></stats>
               <div class="d-flex gap-1">
                 <v-card v-for='image in apt.images'>
-                  <v-img :src="image" :key="image" height="200" width="300"></v-img>
+                  <v-img :src="image" :key="image" height="30vh" width="25vw"></v-img>
                 </v-card>
               </div>
               <h6 class="text-h6">Available Units</h6>
@@ -86,10 +86,10 @@
                 <template v-for="plan in apt.plans">
                   <v-card v-for="unit in plan.units" light>
                     <v-card-title>{{ unit.price | currency }}</v-card-title>
-                    <v-card-subtitle class="pb-0">{{ unit.sqft }} sqft</v-card-subtitle>
-                    <v-card-subtitle class="pt-0 text-subtitle-2">
-                      {{ plan.name }} &bull; Available {{ unit.available }}
+                    <v-card-subtitle class="pb-0 text-subtitle-2">
+                      Unit {{unit.number}} &bull; Available {{ unit.available }}
                     </v-card-subtitle>
+                    <v-card-subtitle class="pt-0">Plan {{ plan.name }} &bull; {{ unit.sqft }} sqft</v-card-subtitle>
                   </v-card>
                 </template>
               </div>
