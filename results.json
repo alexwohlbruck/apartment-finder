@@ -92,15 +92,17 @@
       }
     ]
   },
-  "2022-09-13T19:52:17.507981": {
+  "2022-09-13T21:02:33.136349": {
     "max_price": 1597,
     "min_price": 1420,
     "average_price": 1513.0,
+    "median_price": 1547,
     "apartments": [
       {
         "name": "Asbury Flats",
         "address": "910 Walnut Ave, Charlotte, NC 28208",
         "average_price": 1420.0,
+        "median_price": 1420,
         "min_price": 1420,
         "max_price": 1420,
         "url": "https://www.apartments.com/asbury-flats-charlotte-nc/trmk04c/",
@@ -127,6 +129,7 @@
         "name": "Lincoln at Dilworth",
         "address": "905 Kenilworth Ave, Charlotte, NC 28204",
         "average_price": 1572.0,
+        "median_price": 1587,
         "min_price": 1542,
         "max_price": 1597,
         "url": "https://www.apartments.com/lincoln-at-dilworth-charlotte-nc/vvj4cmf/",
@@ -187,6 +190,7 @@
         "name": "Berkshire Dilworth",
         "address": "1351 E Morehead St, Charlotte, NC 28204",
         "average_price": 1547.0,
+        "median_price": 1547,
         "min_price": 1547,
         "max_price": 1547,
         "url": "https://www.apartments.com/berkshire-dilworth-charlotte-nc/k86ytbc/",

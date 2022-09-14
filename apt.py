@@ -131,6 +131,7 @@ def get_apts():
       'name': name,
       'address': address,
       'average_price': round(sum(prices) / len(prices), 2),
+      'median_price': round(sorted(prices)[len(prices) // 2], 2),
       'min_price': min(prices),
       'max_price': max(prices),
       'url': detail_url,
@@ -146,6 +147,7 @@ def scrape_data():
   min_price = min([x['min_price'] for x in matches])
   average_price = sum([x['average_price'] for x in matches]) / len(matches)
   average_price = round(average_price, 2)
+  median_price = sorted([x['median_price'] for x in matches])[len(matches) // 2]
 
   with open('results.json', 'r+') as f:
     data = json.load(f)
@@ -155,6 +157,7 @@ def scrape_data():
       "max_price": max_price,
       "min_price": min_price,
       "average_price": average_price,
+      "median_price": median_price,
       "apartments": matches,
     }
     

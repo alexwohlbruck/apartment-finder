@@ -70,6 +70,8 @@
             <pricevssqft :data="results" class="flex-1"></pricevssqft>
           </div>
 
+          <p class="text-caption font-italic">Last updated {{lastUpdated}}</p>
+
           <template v-for="apt in latest.apartments">
             <div class="d-flex flex-column gap-1">
               <a class="text-h6" :href="apt.url" target="_blank">{{ apt.name }}</a>
@@ -155,6 +157,7 @@
         const min = [];
         const max = [];
         const average = [];
+        const median = [];
         Object.keys(this.data).forEach(timestamp => {
           const snapshot = this.data[timestamp];
           min.push({
@@ -168,6 +171,10 @@
           average.push({
             x: timestamp,
             y: snapshot.average_price,
+          });
+          median.push({
+            x: timestamp,
+            y: snapshot.median_price,
           });
         });
 
@@ -190,6 +197,12 @@
                 label: "Average price",
                 borderColor: "#FF9551",
                 data: average,
+                fill: false,
+              },
+              {
+                label: "Median price",
+                borderColor: "#FFD651",
+                data: median,
                 fill: false,
               },
             ],
@@ -239,7 +252,7 @@
           {
             datasets: [
               {
-                label: "Price vs. Sqft",
+                label: "Price vs. Sqft for latest data set",
                 borderColor: "#2F4DD6",
                 data: points,
                 pointRadius: 3,
@@ -276,12 +289,17 @@
       el: '#app',
       vuetify: new Vuetify(),
       data: () => ({
-        results: {},
+        results: {}
       }),
       computed: {
         latest() {
           const entries = Object.keys(this.results).sort();
           return this.results[entries[0]];
+        },
+        lastUpdated() {
+          const entries = Object.keys(this.results).sort().reverse();
+          const time = moment(entries[0]).format('MMMM Do YYYY, h:mm:ss a');
+          return `${time} (${moment(entries[0]).fromNow()})`;
         }
       },
       mounted() {
