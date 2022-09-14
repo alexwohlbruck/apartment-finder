@@ -158,8 +158,8 @@
         const max = [];
         const average = [];
         const median = [];
-        Object.keys(this.data).forEach(timestamp => {
-          const snapshot = this.data[timestamp];
+        Object.keys(this.data.snapshots).forEach(timestamp => {
+          const snapshot = this.data.snapshots[timestamp];
           min.push({
             x: timestamp,
             y: snapshot.min_price,
@@ -248,7 +248,7 @@
       },
       mounted() {
         const points = [];
-        const snapshot = this.data[Object.keys(this.data)[0]];
+        const snapshot = this.data.snapshots[Object.keys(this.data.snapshots)[0]];
         snapshot.apartments.forEach(apt => {
           apt.plans.forEach(plan => {
             plan.units.forEach(unit => {
@@ -327,15 +327,16 @@
       el: '#app',
       vuetify: new Vuetify(),
       data: () => ({
-        results: {}
+        results: null
       }),
       computed: {
         latest() {
-          const entries = Object.keys(this.results).sort();
-          return this.results[entries[0]];
+          if (!this.results) return null;
+          const entries = Object.keys(this.results.snapshots).sort();
+          return this.results.snapshots[entries[0]];
         },
         lastUpdated() {
-          const entries = Object.keys(this.results).sort().reverse();
+          const entries = Object.keys(this.results.snapshots).sort().reverse();
           const time = moment(entries[0]).format('MMMM Do YYYY, h:mm:ss a');
           return `${time} (${moment(entries[0]).fromNow()})`;
         }

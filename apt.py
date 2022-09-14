@@ -4,6 +4,11 @@ import json
 import datetime
 import schedule
 import webbrowser
+import requests
+import dotenv
+import os
+
+dotenv.load_dotenv()
 
 AREA = 'south-end-charlotte-nc'
 BEDROOMS = 1
@@ -33,6 +38,11 @@ http.headers.update({
 def build_url():
   return f'https://www.apartments.com/{AREA}/min-{BEDROOMS}-bedrooms-under-{MAX_PRICE}-pet-friendly-cat/'
 
+def build_unique_key(apt, unit):
+  s = f'{apt}-{unit}'
+  s = s.lower().replace(' ', '-')
+  return s
+    
 def get_soup(url):
   r = http.get(url)
   r.raise_for_status()
@@ -51,7 +61,33 @@ def get_text(soup, tag, class_):
   if el:
     return el.text.strip()
   return None
-  
+
+def send_message(name, number, price, sqft, available, url):
+  print('Sending message for', name, number)
+  message = f'New apartment available at {name}! {number} is available for ${price} ({sqft} sqft) and is available {available}. See more at {url}'
+  print(message)
+
+  request_url = "https://u7fsepk6od5wfke1whpgl6vfdj3kbmyp.ui.nabu.casa/api/services/notify/mobile_app_pixel_6_pro"
+  headers = {
+      "Authorization": f"Bearer {os.getenv('HA_TOKEN')}",
+      "content-type": "application/json",
+  }
+  body = {
+    "message": message,
+    "title": "New Apartment Available!",
+    # Tap action open url in chrome
+    "data": {
+      "actions": [
+        {
+          "action": "URI",
+          "title": "View listing",
+          "uri": url, 
+        } 
+      ]
+    },
+  }
+  r = requests.post(request_url, headers=headers, json=body)
+  print(r.text)
 
 # Scrape apartments.com for apartments
 def get_apts():
@@ -68,6 +104,10 @@ def get_apts():
   # Get the data from each list item
   results = []
   for apt in apartments:
+    
+    with open('results.json', 'r') as f:
+      existing_keys = json.load(f)['keys']
+      f.close()
     
     detail_anchor = apt.find('a', class_='property-link')
     if not detail_anchor:
@@ -116,6 +156,9 @@ def get_apts():
             'sqft': sqft,
             'available': available,
           })
+          if (build_unique_key(name, number) not in existing_keys):
+            send_message(name, number, price, sqft, available, detail_url)
+        
       
       if len(units_out) == 0:
         continue
@@ -152,15 +195,23 @@ def scrape_data():
 
   with open('results.json', 'r+') as f:
     data = json.load(f)
+    
+    # Build list of keys for all units
+    keys = []
+    for apt in matches:
+      for plan in apt['plans']:
+        for unit in plan['units']:
+          keys.append(build_unique_key(apt['name'], unit['number']))
 
     now = datetime.datetime.now().isoformat()
-    data[now] = {
+    data['snapshots'][now] = {
       "max_price": max_price,
       "min_price": min_price,
       "average_price": average_price,
       "median_price": median_price,
       "apartments": matches,
     }
+    data['keys'] =  list(set(keys))
     
     f.seek(0)
     json.dump(data, f, indent=2)
