@@ -59,20 +59,22 @@
   <div id="app">
     <v-app>
       <v-main>
-        <v-container v-if="latest" class="d-flex flex-column gap-3">
+        <v-container v-if="snapshot" class="d-flex flex-column gap-3">
           <div>
-            <h6 class="text-h6 mb-1">Results:</h6>
-            <stats :source="latest" :overall="true"></stats>
+            <v-select v-model="chosenSnapshot" :items="snapshotsOptions" label="Select a snapshot" style="width: 20em">
+            </v-select>
+            <h6 class=" text-h6 mb-1">Results:</h6>
+            <stats :source="snapshot" :overall="true"></stats>
           </div>
 
           <div class="d-flex gap-1">
             <minmaxavg :data="results" class="flex-1"></minmaxavg>
-            <pricevssqft :data="results" class="flex-1"></pricevssqft>
+            <pricevssqft :data="results" :chosen-snapshot="chosenSnapshot" class="flex-1"></pricevssqft>
           </div>
 
           <p class="text-caption font-italic">Last updated {{lastUpdated}}</p>
 
-          <template v-for="apt in latest.apartments">
+          <template v-for="apt in snapshot.apartments">
             <div class="d-flex flex-column gap-1">
               <div class="d-flex align-center">
                 <div class="d-flex flex-column">
@@ -127,6 +129,10 @@
       });
     });
 
+    Vue.filter('date', function (value) {
+      return moment(value).format('MMMM Do YYYY, h:mm:ss a');
+    });
+
     Vue.component('stats', {
       name: 'stats',
       props: {
@@ -162,90 +168,96 @@
         data: Object,
       },
       mounted() {
-        const min = [];
-        const max = [];
-        const average = [];
-        const median = [];
-        Object.keys(this.data.snapshots).forEach(timestamp => {
-          const snapshot = this.data.snapshots[timestamp];
-          min.push({
-            x: timestamp,
-            y: snapshot.min_price,
+        this.render();
+      },
+      methods: {
+        render() {
+          console.log('render')
+          const min = [];
+          const max = [];
+          const average = [];
+          const median = [];
+          Object.keys(this.data.snapshots).forEach(timestamp => {
+            const snapshot = this.data.snapshots[timestamp];
+            min.push({
+              x: timestamp,
+              y: snapshot.min_price,
+            });
+            max.push({
+              x: timestamp,
+              y: snapshot.max_price,
+            });
+            average.push({
+              x: timestamp,
+              y: snapshot.average_price,
+            });
+            median.push({
+              x: timestamp,
+              y: snapshot.median_price,
+            });
           });
-          max.push({
-            x: timestamp,
-            y: snapshot.max_price,
-          });
-          average.push({
-            x: timestamp,
-            y: snapshot.average_price,
-          });
-          median.push({
-            x: timestamp,
-            y: snapshot.median_price,
-          });
-        });
 
-        this.renderChart(
-          {
-            datasets: [
-              {
-                label: "Minimum price",
-                borderColor: "#FF4A4A",
-                data: min,
-                fill: false,
-              },
-              {
-                label: "Maximum price",
-                borderColor: "#6FEDD6",
-                data: max,
-                fill: false,
-              },
-              {
-                label: "Average price",
-                borderColor: "#FF9551",
-                data: average,
-                fill: false,
-              },
-              {
-                label: "Median price",
-                borderColor: "#FFD651",
-                data: median,
-                fill: false,
-              },
-            ],
-          },
-          {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-              xAxes: [
+          this.renderChart(
+            {
+              datasets: [
                 {
-                  type: "time",
-                  time: {
-                    displayFormats: {
-                      quarter: "MMM YYYY",
-                    }
-                  },
+                  label: "Minimum price",
+                  borderColor: "#FF4A4A",
+                  data: min,
+                  fill: false,
+                },
+                {
+                  label: "Maximum price",
+                  borderColor: "#6FEDD6",
+                  data: max,
+                  fill: false,
+                },
+                {
+                  label: "Average price",
+                  borderColor: "#FF9551",
+                  data: average,
+                  fill: false,
+                },
+                {
+                  label: "Median price",
+                  borderColor: "#FFD651",
+                  data: median,
+                  fill: false,
                 },
               ],
-              yAxes: [
-                {
-                  ticks: {
-                    callback: function (value, index, values) {
-                      return value.toLocaleString('en-US', {
-                        style: 'currency',
-                        currency: 'USD',
-                        minimumFractionDigits: 0,
-                        maximumFractionDigits: 0
-                      });
+            },
+            {
+              responsive: true,
+              maintainAspectRatio: false,
+              scales: {
+                xAxes: [
+                  {
+                    type: "time",
+                    time: {
+                      displayFormats: {
+                        quarter: "MMM YYYY",
+                      }
+                    },
+                  },
+                ],
+                yAxes: [
+                  {
+                    ticks: {
+                      callback: function (value, index, values) {
+                        return value.toLocaleString('en-US', {
+                          style: 'currency',
+                          currency: 'USD',
+                          minimumFractionDigits: 0,
+                          maximumFractionDigits: 0
+                        });
+                      }
                     }
                   }
-                }
-              ]
-            },
-          }
-        );
+                ]
+              },
+            }
+          );
+        }
       },
     });
 
@@ -253,89 +265,101 @@
       extends: VueChartJs.Scatter,
       props: {
         data: Object,
+        chosenSnapshot: String,
       },
       mounted() {
-        const points = [];
-        const snapshot = this.data.snapshots[Object.keys(this.data.snapshots).sort().reverse()[0]];
-        snapshot.apartments.forEach(apt => {
-          apt.plans.forEach(plan => {
-            plan.units.forEach(unit => {
-              points.push({
-                x: unit.sqft,
-                y: unit.price,
-                label: `${apt.name} - ${plan.name} - ${unit.number}`,
+        this.render();
+      },
+      watch: {
+        chosenSnapshot: function () {
+          this.render();
+        }
+      },
+      methods: {
+        render() {
+          const points = [];
+          const snapshot = this.data.snapshots[this.chosenSnapshot || Object.keys(this.data.snapshots).sort().reverse()[0]];
+          snapshot.apartments.forEach(apt => {
+            apt.plans.forEach(plan => {
+              plan.units.forEach(unit => {
+                points.push({
+                  x: unit.sqft,
+                  y: unit.price,
+                  label: `${apt.name} - ${plan.name} - ${unit.number}`,
+                });
               });
             });
           });
-        });
 
-        // add labels
-        this.renderChart(
-          {
-            datasets: [
-              {
-                label: "Price vs. Size for latest data set",
-                borderColor: "#2F4DD6",
-                data: points,
-                pointRadius: 3,
-                pointHoverRadius: 8,
-                pointBackgroundColor: "#2F4DD6",
-              },
-            ],
-          },
-          {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-              xAxes: [
+          // add labels
+          this.renderChart(
+            {
+              datasets: [
                 {
-                  type: "linear",
-                  position: "bottom",
-                  scaleLabel: {
-                    display: true,
-                    labelString: "Size",
-                  },
-                  ticks: {
-                    callback: function (value, index, values) {
-                      return `${value.toLocaleString('en-US', {
-                        minimumFractionDigits: 0,
-                        maximumFractionDigits: 0
-                      })} sqft`;
-                    }
-                  },
-                },
-              ],
-              yAxes: [
-                {
-                  type: "linear",
-                  position: "left",
-                  scaleLabel: {
-                    display: true,
-                    labelString: "Price",
-                  },
-                  ticks: {
-                    callback: function (value, index, values) {
-                      return value.toLocaleString('en-US', {
-                        style: 'currency',
-                        currency: 'USD',
-                        minimumFractionDigits: 0,
-                        maximumFractionDigits: 0
-                      });
-                    },
-                  },
+                  label: "Price vs. Size for current snapshot",
+                  borderColor: "#2F4DD6",
+                  data: points,
+                  pointRadius: 3,
+                  pointHoverRadius: 8,
+                  pointBackgroundColor: "#2F4DD6",
                 },
               ],
             },
-          },
-        );
-      },
+            {
+              responsive: true,
+              maintainAspectRatio: false,
+              scales: {
+                xAxes: [
+                  {
+                    type: "linear",
+                    position: "bottom",
+                    scaleLabel: {
+                      display: true,
+                      labelString: "Size",
+                    },
+                    ticks: {
+                      callback: function (value, index, values) {
+                        return `${value.toLocaleString('en-US', {
+                          minimumFractionDigits: 0,
+                          maximumFractionDigits: 0
+                        })} sqft`;
+                      }
+                    },
+                  },
+                ],
+                yAxes: [
+                  {
+                    type: "linear",
+                    position: "left",
+                    scaleLabel: {
+                      display: true,
+                      labelString: "Price",
+                    },
+                    ticks: {
+                      callback: function (value, index, values) {
+                        return value.toLocaleString('en-US', {
+                          style: 'currency',
+                          currency: 'USD',
+                          minimumFractionDigits: 0,
+                          maximumFractionDigits: 0
+                        });
+                      },
+                    },
+                  },
+                ],
+              },
+            },
+          );
+        }
+      }
     });
 
     new Vue({
       el: '#app',
       vuetify: new Vuetify(),
       data: () => ({
-        results: null
+        results: null,
+        chosenSnapshot: null,
       }),
       computed: {
         latestTimestamp() {
@@ -343,14 +367,23 @@
           const entries = Object.keys(this.results.snapshots).sort().reverse();
           return entries[0];
         },
-        latest() {
-          if (!this.latestTimestamp) return null;
-          return this.results.snapshots[this.latestTimestamp];
+        snapshot() {
+          if (!this.chosenSnapshot) {
+            if (!this.latestTimestamp) return null;
+            return this.results.snapshots[this.latestTimestamp];
+          }
+          return this.results.snapshots[this.chosenSnapshot];
         },
         lastUpdated() {
           if (!this.latestTimestamp) return '';
           const time = moment(this.latestTimestamp).format('MMMM Do YYYY, h:mm:ss a');
           return `${time} (${moment(this.latestTimestamp).fromNow()})`;
+        },
+        snapshotsOptions() {
+          return Object.keys(this.results.snapshots).sort().reverse().map(timestamp => ({
+            text: moment(timestamp).format('MMMM DD, YYYY h:mm A'),
+            value: timestamp,
+          }));
         }
       },
       mounted() {
@@ -359,6 +392,7 @@
           .then(response => response.json())
           .then(data => {
             this.results = data;
+            this.chosenSnapshot = this.latestTimestamp;
           });
       }
     })
