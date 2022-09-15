@@ -216,7 +216,7 @@
         }
       ]
     },
-    "2022-09-14T23:01:58.318243": {
+    "2022-09-14T23:39:23.738502": {
       "max_price": 1648,
       "min_price": 1508,
       "average_price": 1604.06,
@@ -584,38 +584,1134 @@
           ]
         }
       ]
+    },
+    "2022-09-14T23:58:50.637907": {
+      "max_price": 1693,
+      "min_price": 1508,
+      "average_price": 1638.06,
+      "median_price": 1671,
+      "apartments": [
+        {
+          "name": "MAA Reserve",
+          "address": "2720 South Blvd, Charlotte, NC 28209",
+          "average_price": 1575.69,
+          "median_price": 1553,
+          "min_price": 1508,
+          "max_price": 1688,
+          "url": "https://www.apartments.com/maa-reserve-charlotte-nc/9bq6d06/",
+          "images": [
+            "https://images1.apartments.com/i2/WwCBBHzpzd79Urt-wVX9dlw9jDtOm_ig6pfsTM7zMZA/111/maa-reserve-charlotte-nc-primary-photo.jpg?p=1",
+            "https://images1.apartments.com/m2/gAMT4RB3sZ3ouZOG0PzYH7RZiTheBb5KTRUkZNmSOzc/H330W495/maa-reserve-charlotte-nc-map-image-of-the-property.jpg?p=1",
+            "https://images1.apartments.com/i2/cwCgrVsnO62lNWHGC3Fe5iBuSvzu7J1rhBm7fepJ01c/117/maa-reserve-charlotte-nc-building-photo.jpg?p=1"
+          ],
+          "plans": [
+            {
+              "name": "11A",
+              "units": [
+                {
+                  "number": "300B138",
+                  "price": 1523,
+                  "sqft": 705,
+                  "available": "Now"
+                },
+                {
+                  "number": "200C357",
+                  "price": 1523,
+                  "sqft": 705,
+                  "available": "Now"
+                },
+                {
+                  "number": "300B230",
+                  "price": 1523,
+                  "sqft": 705,
+                  "available": "Now"
+                },
+                {
+                  "number": "200C460",
+                  "price": 1673,
+                  "sqft": 847,
+                  "available": "Sep. 24"
+                },
+                {
+                  "number": "300B431",
+                  "price": 1688,
+                  "sqft": 847,
+                  "available": "Sep. 30"
+                },
+                {
+                  "number": "300A112",
+                  "price": 1588,
+                  "sqft": 705,
+                  "available": "Oct. 8"
+                },
+                {
+                  "number": "300B428",
+                  "price": 1603,
+                  "sqft": 705,
+                  "available": "Oct. 12"
+                }
+              ]
+            },
+            {
+              "name": "11A Alt 6",
+              "units": [
+                {
+                  "number": "300A401",
+                  "price": 1663,
+                  "sqft": 822,
+                  "available": "Oct. 3"
+                },
+                {
+                  "number": "200D374",
+                  "price": 1508,
+                  "sqft": 681,
+                  "available": "Oct. 4"
+                },
+                {
+                  "number": "300A303",
+                  "price": 1508,
+                  "sqft": 681,
+                  "available": "Oct. 7"
+                },
+                {
+                  "number": "300B139",
+                  "price": 1543,
+                  "sqft": 681,
+                  "available": "Nov. 6"
+                }
+              ]
+            },
+            {
+              "name": "11A Alt 3",
+              "units": [
+                {
+                  "number": "200D391",
+                  "price": 1588,
+                  "sqft": 792,
+                  "available": "Oct. 6"
+                }
+              ]
+            },
+            {
+              "name": "11D",
+              "units": [
+                {
+                  "number": "300A109",
+                  "price": 1553,
+                  "sqft": 766,
+                  "available": "Nov. 9"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "MAA 1225",
+          "address": "1225 S Church St, Charlotte, NC 28203",
+          "average_price": 1634.36,
+          "median_price": 1638,
+          "min_price": 1538,
+          "max_price": 1683,
+          "url": "https://www.apartments.com/maa-1225-charlotte-nc/0pyg4z0/",
+          "images": [
+            "https://images1.apartments.com/i2/Ibisfl3VXOiD0-Skk9PVAUNqaeCfxNSvD00JIGBwr3c/111/maa-1225-charlotte-nc-primary-photo.jpg?p=1",
+            "https://images1.apartments.com/m2/SPK1TmSBjcZQYsIksxQnIS2Bq1OhqGYdDZaYQsnONBE/H330W495/maa-1225-charlotte-nc-map-image-of-the-property.jpg?p=1",
+            "https://images1.apartments.com/i2/zXTziVNNXtFcPxE8idexNH8Nqcfz4028bGn5vCRQ0ms/117/maa-1225-charlotte-nc-building-photo.jpg?p=1"
+          ],
+          "plans": [
+            {
+              "name": "Munich II",
+              "units": [
+                {
+                  "number": "02613",
+                  "price": 1633,
+                  "sqft": 852,
+                  "available": "Sep. 19"
+                },
+                {
+                  "number": "02814",
+                  "price": 1683,
+                  "sqft": 852,
+                  "available": "Oct. 3"
+                },
+                {
+                  "number": "02513",
+                  "price": 1608,
+                  "sqft": 852,
+                  "available": "Nov. 6"
+                }
+              ]
+            },
+            {
+              "name": "Munich",
+              "units": [
+                {
+                  "number": "010115",
+                  "price": 1668,
+                  "sqft": 895,
+                  "available": "Sep. 23"
+                },
+                {
+                  "number": "010147",
+                  "price": 1683,
+                  "sqft": 872,
+                  "available": "Oct. 3"
+                }
+              ]
+            },
+            {
+              "name": "Barcelona",
+              "units": [
+                {
+                  "number": "010333",
+                  "price": 1608,
+                  "sqft": 736,
+                  "available": "Oct. 4"
+                },
+                {
+                  "number": "010425",
+                  "price": 1628,
+                  "sqft": 755,
+                  "available": "Nov. 5"
+                }
+              ]
+            },
+            {
+              "name": "Milan II",
+              "units": [
+                {
+                  "number": "02840",
+                  "price": 1643,
+                  "sqft": 808,
+                  "available": "Oct. 8"
+                },
+                {
+                  "number": "02560",
+                  "price": 1638,
+                  "sqft": 808,
+                  "available": "Nov. 1"
+                }
+              ]
+            },
+            {
+              "name": "Venice",
+              "units": [
+                {
+                  "number": "010232",
+                  "price": 1648,
+                  "sqft": 994,
+                  "available": "Nov. 7"
+                }
+              ]
+            },
+            {
+              "name": "Barcelona II",
+              "units": [
+                {
+                  "number": "02531",
+                  "price": 1538,
+                  "sqft": 755,
+                  "available": "Nov. 13"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Lincoln at Dilworth",
+          "address": "905 Kenilworth Ave, Charlotte, NC 28204",
+          "average_price": 1603.09,
+          "median_price": 1597,
+          "min_price": 1542,
+          "max_price": 1678,
+          "url": "https://www.apartments.com/lincoln-at-dilworth-charlotte-nc/vvj4cmf/",
+          "images": [
+            "https://images1.apartments.com/i2/jV8n3W4M51ehIm29qf8k1dwpqLSbf-svRtlICr2LfCI/111/lincoln-at-dilworth-charlotte-nc-primary-photo.jpg?p=1",
+            "https://images1.apartments.com/m2/0XwepeDblmHUlWbtOrNJ5FkurPi8BcFDA_j_M8PjICo/H330W495/lincoln-at-dilworth-charlotte-nc-map-image-of-the-property.jpg?p=1",
+            "https://images1.apartments.com/i2/J8AQyLL382sojj15nd6cF9LZBYuabOsFg1K8xf9RbDY/117/lincoln-at-dilworth-charlotte-nc-1br-1ba.jpg?p=1"
+          ],
+          "plans": [
+            {
+              "name": "A2h",
+              "units": [
+                {
+                  "number": "431",
+                  "price": 1542,
+                  "sqft": 670,
+                  "available": "Now"
+                }
+              ]
+            },
+            {
+              "name": "A4g",
+              "units": [
+                {
+                  "number": "264",
+                  "price": 1542,
+                  "sqft": 700,
+                  "available": "Now"
+                },
+                {
+                  "number": "106",
+                  "price": 1587,
+                  "sqft": 700,
+                  "available": "Now"
+                },
+                {
+                  "number": "206",
+                  "price": 1587,
+                  "sqft": 700,
+                  "available": "Now"
+                }
+              ]
+            },
+            {
+              "name": "A4i",
+              "units": [
+                {
+                  "number": "102",
+                  "price": 1547,
+                  "sqft": 650,
+                  "available": "Now"
+                },
+                {
+                  "number": "402",
+                  "price": 1597,
+                  "sqft": 650,
+                  "available": "Now"
+                }
+              ]
+            },
+            {
+              "name": "A4h",
+              "units": [
+                {
+                  "number": "564",
+                  "price": 1612,
+                  "sqft": 660,
+                  "available": "Now"
+                }
+              ]
+            },
+            {
+              "name": "A6b",
+              "units": [
+                {
+                  "number": "419",
+                  "price": 1652,
+                  "sqft": 730,
+                  "available": "Now"
+                }
+              ]
+            },
+            {
+              "name": "A4c",
+              "units": [
+                {
+                  "number": "534",
+                  "price": 1642,
+                  "sqft": 695,
+                  "available": "Sep. 28"
+                },
+                {
+                  "number": "530",
+                  "price": 1648,
+                  "sqft": 695,
+                  "available": "Oct. 7"
+                }
+              ]
+            },
+            {
+              "name": "A4k",
+              "units": [
+                {
+                  "number": "396",
+                  "price": 1678,
+                  "sqft": 725,
+                  "available": "Oct. 7"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Berkshire Dilworth",
+          "address": "1351 E Morehead St, Charlotte, NC 28204",
+          "average_price": 1588.0,
+          "median_price": 1588,
+          "min_price": 1588,
+          "max_price": 1588,
+          "url": "https://www.apartments.com/berkshire-dilworth-charlotte-nc/k86ytbc/",
+          "images": [
+            "https://images1.apartments.com/i2/dlBj_MNYoeC-SbKzGYvdzj87TUyA3rfU0qcd3AFSBE4/111/berkshire-dilworth-charlotte-nc-primary-photo.jpg?p=1",
+            "https://images1.apartments.com/m2/rzzsjDeqke8lJLQG4Owbhl4Oxw7uj89fYCjcb--vcu4/H330W495/berkshire-dilworth-charlotte-nc-map-image-of-the-property.jpg?p=1",
+            "https://images1.apartments.com/i2/Qf_IyhSm8-o0op8LT_zkFdYabDYVb0c_ghJNwOwS80g/117/berkshire-dilworth-charlotte-nc-building-photo.jpg?p=1"
+          ],
+          "plans": [
+            {
+              "name": "Iverson ADA accessible",
+              "units": [
+                {
+                  "number": "243",
+                  "price": 1588,
+                  "sqft": 631,
+                  "available": "Now"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Midtown 205",
+          "address": "205 S Kings Dr, Charlotte, NC 28204",
+          "average_price": 1664.5,
+          "median_price": 1688,
+          "min_price": 1641,
+          "max_price": 1688,
+          "url": "https://www.apartments.com/midtown-205-charlotte-nc/95dwth6/",
+          "images": [
+            "https://images1.apartments.com/i2/ZHwMWrl8ETqH33AnJboWNU9LDRyfNtGgAkzILB6ypRc/111/midtown-205-charlotte-nc-primary-photo.jpg?p=1",
+            "https://images1.apartments.com/m2/7_tdMvWCDcPb8_dCvGYUo6I8x6W2UcBdnDGCEbpXL5o/H330W495/midtown-205-charlotte-nc-map-image-of-the-property.jpg?p=1",
+            "https://images1.apartments.com/i2/v7mTyaUSHqSoyXjbrPgOlMtxqSKA90YkZ_aZLSBt2d0/117/midtown-205-charlotte-nc-pool-area.jpg?p=1"
+          ],
+          "plans": [
+            {
+              "name": "A3",
+              "units": [
+                {
+                  "number": "248",
+                  "price": 1641,
+                  "sqft": 730,
+                  "available": "Oct. 14"
+                }
+              ]
+            },
+            {
+              "name": "A5",
+              "units": [
+                {
+                  "number": "521",
+                  "price": 1688,
+                  "sqft": 770,
+                  "available": "Sep. 25"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Mosaic South End Apartments",
+          "address": "1312 S College St, Charlotte, NC 28203",
+          "average_price": 1667.83,
+          "median_price": 1671,
+          "min_price": 1642,
+          "max_price": 1691,
+          "url": "https://www.apartments.com/mosaic-south-end-apartments-charlotte-nc/5b2t3vq/",
+          "images": [
+            "https://images1.apartments.com/i2/mERiQZd0b-Ff1bBJWGHGs57jMxH5yaCzIRkonDzlyS4/111/mosaic-south-end-apartments-charlotte-nc-primary-photo.jpg?p=1",
+            "https://images1.apartments.com/m2/0WJfPZzWJHWPD_ufmTKhjt-upcncWTBIG2yvJ3-pTq8/H330W495/mosaic-south-end-apartments-charlotte-nc-map-image-of-the-property.jpg?p=1",
+            "https://images1.apartments.com/i2/uheos-k--CCH6QAiamsJHvqCAIitzB1XN2QOgn6HbxY/117/mosaic-south-end-apartments-charlotte-nc-building-photo.jpg?p=1"
+          ],
+          "plans": [
+            {
+              "name": "Infinity",
+              "units": [
+                {
+                  "number": "1-1313",
+                  "price": 1642,
+                  "sqft": 819,
+                  "available": "Oct. 25"
+                }
+              ]
+            },
+            {
+              "name": "Destiny",
+              "units": [
+                {
+                  "number": "1-1302",
+                  "price": 1665,
+                  "sqft": 741,
+                  "available": "Now"
+                },
+                {
+                  "number": "1-1205",
+                  "price": 1656,
+                  "sqft": 715,
+                  "available": "Nov. 17"
+                }
+              ]
+            },
+            {
+              "name": "Prosperity",
+              "units": [
+                {
+                  "number": "2-2310",
+                  "price": 1671,
+                  "sqft": 636,
+                  "available": "Now"
+                },
+                {
+                  "number": "2-2304",
+                  "price": 1691,
+                  "sqft": 670,
+                  "available": "Sep. 17"
+                },
+                {
+                  "number": "1-1108",
+                  "price": 1682,
+                  "sqft": 650,
+                  "available": "Nov. 18"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "1100 South",
+          "address": "1100 South Blvd, Charlotte, NC 28203",
+          "average_price": 1678.0,
+          "median_price": 1683,
+          "min_price": 1673,
+          "max_price": 1683,
+          "url": "https://www.apartments.com/1100-south-charlotte-nc/t85bh9b/",
+          "images": [
+            "https://images1.apartments.com/i2/NnfNU0ZBxQpZZX_VSF-nvCraOnNsb8kUrRSC30Pbldo/111/1100-south-charlotte-nc-kitchen.jpg?p=1",
+            "https://images1.apartments.com/m2/fxNalgWu_jpZKCxdWZo7MKUvR7lROzmMPK_drSdaF8g/H330W495/1100-south-charlotte-nc-map-image-of-the-property.jpg?p=1",
+            "https://images1.apartments.com/i2/iiZcKDVs2ej2Ir6GHnwQv8OdxsUv-fNGB3vB3bMfkHc/117/1100-south-charlotte-nc-living-room.jpg?p=1"
+          ],
+          "plans": [
+            {
+              "name": "A1",
+              "units": [
+                {
+                  "number": "290",
+                  "price": 1673,
+                  "sqft": 651,
+                  "available": "Now"
+                },
+                {
+                  "number": "302",
+                  "price": 1683,
+                  "sqft": 651,
+                  "available": "Now"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Greenside",
+          "address": "1315 Harding Pl, Charlotte, NC 28204",
+          "average_price": 1693.0,
+          "median_price": 1693,
+          "min_price": 1693,
+          "max_price": 1693,
+          "url": "https://www.apartments.com/greenside-charlotte-nc/n1yby3n/",
+          "images": [
+            "https://images1.apartments.com/i2/wB9091TYA_Fpd3f8IMbuzmgLMaXcJeM1aocOfOe3BJ8/111/greenside-charlotte-nc-primary-photo.jpg?p=1",
+            "https://images1.apartments.com/m2/UzL74blG4AxlwSukSg2v7qOBwCuleluO7YAZlWSm1w4/H330W495/greenside-charlotte-nc-map-image-of-the-property.jpg?p=1",
+            "https://images1.apartments.com/i2/-d1SHJL6hCkCRM6-uw3R3_2gyFir54Yyn6S4oIYktA0/117/greenside-charlotte-nc-building-photo.jpg?p=1"
+          ],
+          "plans": [
+            {
+              "name": "A4",
+              "units": [
+                {
+                  "number": "422",
+                  "price": 1693,
+                  "sqft": 710,
+                  "available": "Dec. 8"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "2022-09-15T09:57:15.739043": {
+      "max_price": 1693,
+      "min_price": 1508,
+      "average_price": 1636.73,
+      "median_price": 1665,
+      "apartments": [
+        {
+          "name": "MAA Reserve",
+          "address": "2720 South Blvd, Charlotte, NC 28209",
+          "average_price": 1575.69,
+          "median_price": 1553,
+          "min_price": 1508,
+          "max_price": 1688,
+          "url": "https://www.apartments.com/maa-reserve-charlotte-nc/9bq6d06/",
+          "images": [
+            "https://images1.apartments.com/i2/WwCBBHzpzd79Urt-wVX9dlw9jDtOm_ig6pfsTM7zMZA/111/maa-reserve-charlotte-nc-primary-photo.jpg?p=1",
+            "https://images1.apartments.com/m2/gAMT4RB3sZ3ouZOG0PzYH7RZiTheBb5KTRUkZNmSOzc/H330W495/maa-reserve-charlotte-nc-map-image-of-the-property.jpg?p=1",
+            "https://images1.apartments.com/i2/cwCgrVsnO62lNWHGC3Fe5iBuSvzu7J1rhBm7fepJ01c/117/maa-reserve-charlotte-nc-building-photo.jpg?p=1"
+          ],
+          "plans": [
+            {
+              "name": "11A",
+              "units": [
+                {
+                  "number": "300B138",
+                  "price": 1523,
+                  "sqft": 705,
+                  "available": "Now"
+                },
+                {
+                  "number": "200C357",
+                  "price": 1523,
+                  "sqft": 705,
+                  "available": "Now"
+                },
+                {
+                  "number": "300B230",
+                  "price": 1523,
+                  "sqft": 705,
+                  "available": "Now"
+                },
+                {
+                  "number": "200C460",
+                  "price": 1673,
+                  "sqft": 847,
+                  "available": "Sep. 24"
+                },
+                {
+                  "number": "300B431",
+                  "price": 1688,
+                  "sqft": 847,
+                  "available": "Sep. 30"
+                },
+                {
+                  "number": "300A112",
+                  "price": 1588,
+                  "sqft": 705,
+                  "available": "Oct. 8"
+                },
+                {
+                  "number": "300B428",
+                  "price": 1603,
+                  "sqft": 705,
+                  "available": "Oct. 12"
+                }
+              ]
+            },
+            {
+              "name": "11A Alt 6",
+              "units": [
+                {
+                  "number": "300A401",
+                  "price": 1663,
+                  "sqft": 822,
+                  "available": "Oct. 3"
+                },
+                {
+                  "number": "200D374",
+                  "price": 1508,
+                  "sqft": 681,
+                  "available": "Oct. 4"
+                },
+                {
+                  "number": "300A303",
+                  "price": 1508,
+                  "sqft": 681,
+                  "available": "Oct. 7"
+                },
+                {
+                  "number": "300B139",
+                  "price": 1543,
+                  "sqft": 681,
+                  "available": "Nov. 6"
+                }
+              ]
+            },
+            {
+              "name": "11A Alt 3",
+              "units": [
+                {
+                  "number": "200D391",
+                  "price": 1588,
+                  "sqft": 792,
+                  "available": "Oct. 6"
+                }
+              ]
+            },
+            {
+              "name": "11D",
+              "units": [
+                {
+                  "number": "300A109",
+                  "price": 1553,
+                  "sqft": 766,
+                  "available": "Nov. 9"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "MAA 1225",
+          "address": "1225 S Church St, Charlotte, NC 28203",
+          "average_price": 1634.36,
+          "median_price": 1638,
+          "min_price": 1538,
+          "max_price": 1683,
+          "url": "https://www.apartments.com/maa-1225-charlotte-nc/0pyg4z0/",
+          "images": [
+            "https://images1.apartments.com/i2/Ibisfl3VXOiD0-Skk9PVAUNqaeCfxNSvD00JIGBwr3c/111/maa-1225-charlotte-nc-primary-photo.jpg?p=1",
+            "https://images1.apartments.com/m2/SPK1TmSBjcZQYsIksxQnIS2Bq1OhqGYdDZaYQsnONBE/H330W495/maa-1225-charlotte-nc-map-image-of-the-property.jpg?p=1",
+            "https://images1.apartments.com/i2/zXTziVNNXtFcPxE8idexNH8Nqcfz4028bGn5vCRQ0ms/117/maa-1225-charlotte-nc-building-photo.jpg?p=1"
+          ],
+          "plans": [
+            {
+              "name": "Munich II",
+              "units": [
+                {
+                  "number": "02613",
+                  "price": 1633,
+                  "sqft": 852,
+                  "available": "Sep. 19"
+                },
+                {
+                  "number": "02814",
+                  "price": 1683,
+                  "sqft": 852,
+                  "available": "Oct. 3"
+                },
+                {
+                  "number": "02513",
+                  "price": 1608,
+                  "sqft": 852,
+                  "available": "Nov. 6"
+                }
+              ]
+            },
+            {
+              "name": "Munich",
+              "units": [
+                {
+                  "number": "010115",
+                  "price": 1668,
+                  "sqft": 895,
+                  "available": "Sep. 23"
+                },
+                {
+                  "number": "010147",
+                  "price": 1683,
+                  "sqft": 872,
+                  "available": "Oct. 3"
+                }
+              ]
+            },
+            {
+              "name": "Barcelona",
+              "units": [
+                {
+                  "number": "010333",
+                  "price": 1608,
+                  "sqft": 736,
+                  "available": "Oct. 4"
+                },
+                {
+                  "number": "010425",
+                  "price": 1628,
+                  "sqft": 755,
+                  "available": "Nov. 5"
+                }
+              ]
+            },
+            {
+              "name": "Milan II",
+              "units": [
+                {
+                  "number": "02840",
+                  "price": 1643,
+                  "sqft": 808,
+                  "available": "Oct. 8"
+                },
+                {
+                  "number": "02560",
+                  "price": 1638,
+                  "sqft": 808,
+                  "available": "Nov. 1"
+                }
+              ]
+            },
+            {
+              "name": "Venice",
+              "units": [
+                {
+                  "number": "010232",
+                  "price": 1648,
+                  "sqft": 994,
+                  "available": "Nov. 7"
+                }
+              ]
+            },
+            {
+              "name": "Barcelona II",
+              "units": [
+                {
+                  "number": "02531",
+                  "price": 1538,
+                  "sqft": 755,
+                  "available": "Nov. 13"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Lincoln at Dilworth",
+          "address": "905 Kenilworth Ave, Charlotte, NC 28204",
+          "average_price": 1603.09,
+          "median_price": 1597,
+          "min_price": 1542,
+          "max_price": 1678,
+          "url": "https://www.apartments.com/lincoln-at-dilworth-charlotte-nc/vvj4cmf/",
+          "images": [
+            "https://images1.apartments.com/i2/jV8n3W4M51ehIm29qf8k1dwpqLSbf-svRtlICr2LfCI/111/lincoln-at-dilworth-charlotte-nc-primary-photo.jpg?p=1",
+            "https://images1.apartments.com/m2/0XwepeDblmHUlWbtOrNJ5FkurPi8BcFDA_j_M8PjICo/H330W495/lincoln-at-dilworth-charlotte-nc-map-image-of-the-property.jpg?p=1",
+            "https://images1.apartments.com/i2/J8AQyLL382sojj15nd6cF9LZBYuabOsFg1K8xf9RbDY/117/lincoln-at-dilworth-charlotte-nc-1br-1ba.jpg?p=1"
+          ],
+          "plans": [
+            {
+              "name": "A2h",
+              "units": [
+                {
+                  "number": "431",
+                  "price": 1542,
+                  "sqft": 670,
+                  "available": "Now"
+                }
+              ]
+            },
+            {
+              "name": "A4g",
+              "units": [
+                {
+                  "number": "264",
+                  "price": 1542,
+                  "sqft": 700,
+                  "available": "Now"
+                },
+                {
+                  "number": "106",
+                  "price": 1587,
+                  "sqft": 700,
+                  "available": "Now"
+                },
+                {
+                  "number": "206",
+                  "price": 1587,
+                  "sqft": 700,
+                  "available": "Now"
+                }
+              ]
+            },
+            {
+              "name": "A4i",
+              "units": [
+                {
+                  "number": "102",
+                  "price": 1547,
+                  "sqft": 650,
+                  "available": "Now"
+                },
+                {
+                  "number": "402",
+                  "price": 1597,
+                  "sqft": 650,
+                  "available": "Now"
+                }
+              ]
+            },
+            {
+              "name": "A4h",
+              "units": [
+                {
+                  "number": "564",
+                  "price": 1612,
+                  "sqft": 660,
+                  "available": "Now"
+                }
+              ]
+            },
+            {
+              "name": "A6b",
+              "units": [
+                {
+                  "number": "419",
+                  "price": 1652,
+                  "sqft": 730,
+                  "available": "Now"
+                }
+              ]
+            },
+            {
+              "name": "A4c",
+              "units": [
+                {
+                  "number": "534",
+                  "price": 1642,
+                  "sqft": 695,
+                  "available": "Sep. 28"
+                },
+                {
+                  "number": "530",
+                  "price": 1648,
+                  "sqft": 695,
+                  "available": "Oct. 7"
+                }
+              ]
+            },
+            {
+              "name": "A4k",
+              "units": [
+                {
+                  "number": "396",
+                  "price": 1678,
+                  "sqft": 725,
+                  "available": "Oct. 7"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Berkshire Dilworth",
+          "address": "1351 E Morehead St, Charlotte, NC 28204",
+          "average_price": 1588.0,
+          "median_price": 1588,
+          "min_price": 1588,
+          "max_price": 1588,
+          "url": "https://www.apartments.com/berkshire-dilworth-charlotte-nc/k86ytbc/",
+          "images": [
+            "https://images1.apartments.com/i2/dlBj_MNYoeC-SbKzGYvdzj87TUyA3rfU0qcd3AFSBE4/111/berkshire-dilworth-charlotte-nc-primary-photo.jpg?p=1",
+            "https://images1.apartments.com/m2/rzzsjDeqke8lJLQG4Owbhl4Oxw7uj89fYCjcb--vcu4/H330W495/berkshire-dilworth-charlotte-nc-map-image-of-the-property.jpg?p=1",
+            "https://images1.apartments.com/i2/Qf_IyhSm8-o0op8LT_zkFdYabDYVb0c_ghJNwOwS80g/117/berkshire-dilworth-charlotte-nc-building-photo.jpg?p=1"
+          ],
+          "plans": [
+            {
+              "name": "Iverson ADA accessible",
+              "units": [
+                {
+                  "number": "243",
+                  "price": 1588,
+                  "sqft": 631,
+                  "available": "Now"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Midtown 205",
+          "address": "205 S Kings Dr, Charlotte, NC 28204",
+          "average_price": 1664.5,
+          "median_price": 1688,
+          "min_price": 1641,
+          "max_price": 1688,
+          "url": "https://www.apartments.com/midtown-205-charlotte-nc/95dwth6/",
+          "images": [
+            "https://images1.apartments.com/i2/ZHwMWrl8ETqH33AnJboWNU9LDRyfNtGgAkzILB6ypRc/111/midtown-205-charlotte-nc-primary-photo.jpg?p=1",
+            "https://images1.apartments.com/m2/7_tdMvWCDcPb8_dCvGYUo6I8x6W2UcBdnDGCEbpXL5o/H330W495/midtown-205-charlotte-nc-map-image-of-the-property.jpg?p=1",
+            "https://images1.apartments.com/i2/v7mTyaUSHqSoyXjbrPgOlMtxqSKA90YkZ_aZLSBt2d0/117/midtown-205-charlotte-nc-pool-area.jpg?p=1"
+          ],
+          "plans": [
+            {
+              "name": "A3",
+              "units": [
+                {
+                  "number": "248",
+                  "price": 1641,
+                  "sqft": 730,
+                  "available": "Oct. 14"
+                }
+              ]
+            },
+            {
+              "name": "A5",
+              "units": [
+                {
+                  "number": "521",
+                  "price": 1688,
+                  "sqft": 770,
+                  "available": "Sep. 25"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Mosaic South End Apartments",
+          "address": "1312 S College St, Charlotte, NC 28203",
+          "average_price": 1667.2,
+          "median_price": 1665,
+          "min_price": 1642,
+          "max_price": 1691,
+          "url": "https://www.apartments.com/mosaic-south-end-apartments-charlotte-nc/5b2t3vq/",
+          "images": [
+            "https://images1.apartments.com/i2/mERiQZd0b-Ff1bBJWGHGs57jMxH5yaCzIRkonDzlyS4/111/mosaic-south-end-apartments-charlotte-nc-primary-photo.jpg?p=1",
+            "https://images1.apartments.com/m2/0WJfPZzWJHWPD_ufmTKhjt-upcncWTBIG2yvJ3-pTq8/H330W495/mosaic-south-end-apartments-charlotte-nc-map-image-of-the-property.jpg?p=1",
+            "https://images1.apartments.com/i2/uheos-k--CCH6QAiamsJHvqCAIitzB1XN2QOgn6HbxY/117/mosaic-south-end-apartments-charlotte-nc-building-photo.jpg?p=1"
+          ],
+          "plans": [
+            {
+              "name": "Infinity",
+              "units": [
+                {
+                  "number": "1-1313",
+                  "price": 1642,
+                  "sqft": 819,
+                  "available": "Oct. 25"
+                }
+              ]
+            },
+            {
+              "name": "Destiny",
+              "units": [
+                {
+                  "number": "1-1302",
+                  "price": 1665,
+                  "sqft": 741,
+                  "available": "Now"
+                },
+                {
+                  "number": "1-1205",
+                  "price": 1656,
+                  "sqft": 715,
+                  "available": "Nov. 17"
+                }
+              ]
+            },
+            {
+              "name": "Prosperity",
+              "units": [
+                {
+                  "number": "2-2304",
+                  "price": 1691,
+                  "sqft": 670,
+                  "available": "Sep. 17"
+                },
+                {
+                  "number": "1-1108",
+                  "price": 1682,
+                  "sqft": 650,
+                  "available": "Nov. 18"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "1100 South",
+          "address": "1100 South Blvd, Charlotte, NC 28203",
+          "average_price": 1668.0,
+          "median_price": 1673,
+          "min_price": 1663,
+          "max_price": 1673,
+          "url": "https://www.apartments.com/1100-south-charlotte-nc/t85bh9b/",
+          "images": [
+            "https://images1.apartments.com/i2/NnfNU0ZBxQpZZX_VSF-nvCraOnNsb8kUrRSC30Pbldo/111/1100-south-charlotte-nc-kitchen.jpg?p=1",
+            "https://images1.apartments.com/m2/fxNalgWu_jpZKCxdWZo7MKUvR7lROzmMPK_drSdaF8g/H330W495/1100-south-charlotte-nc-map-image-of-the-property.jpg?p=1",
+            "https://images1.apartments.com/i2/iiZcKDVs2ej2Ir6GHnwQv8OdxsUv-fNGB3vB3bMfkHc/117/1100-south-charlotte-nc-living-room.jpg?p=1"
+          ],
+          "plans": [
+            {
+              "name": "A1",
+              "units": [
+                {
+                  "number": "290",
+                  "price": 1663,
+                  "sqft": 651,
+                  "available": "Now"
+                },
+                {
+                  "number": "302",
+                  "price": 1673,
+                  "sqft": 651,
+                  "available": "Now"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Greenside",
+          "address": "1315 Harding Pl, Charlotte, NC 28204",
+          "average_price": 1693.0,
+          "median_price": 1693,
+          "min_price": 1693,
+          "max_price": 1693,
+          "url": "https://www.apartments.com/greenside-charlotte-nc/n1yby3n/",
+          "images": [
+            "https://images1.apartments.com/i2/wB9091TYA_Fpd3f8IMbuzmgLMaXcJeM1aocOfOe3BJ8/111/greenside-charlotte-nc-primary-photo.jpg?p=1",
+            "https://images1.apartments.com/m2/UzL74blG4AxlwSukSg2v7qOBwCuleluO7YAZlWSm1w4/H330W495/greenside-charlotte-nc-map-image-of-the-property.jpg?p=1",
+            "https://images1.apartments.com/i2/-d1SHJL6hCkCRM6-uw3R3_2gyFir54Yyn6S4oIYktA0/117/greenside-charlotte-nc-building-photo.jpg?p=1"
+          ],
+          "plans": [
+            {
+              "name": "A4",
+              "units": [
+                {
+                  "number": "422",
+                  "price": 1693,
+                  "sqft": 710,
+                  "available": "Dec. 8"
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "keys": [
-    "lincoln-at-dilworth-106",
-    "mosaic-south-end-apartments-1-1313",
-    "berkshire-dilworth-243",
-    "maa-1225-010333",
-    "maa-reserve-300b138",
-    "maa-1225-02840",
-    "maa-reserve-300b230",
+    "lincoln-at-dilworth-264",
+    "1100-south-302",
+    "midtown-205-248",
+    "lincoln-at-dilworth-564",
     "maa-reserve-200d391",
+    "maa-reserve-300b138",
+    "mosaic-south-end-apartments-1-1108",
+    "maa-reserve-200d374",
+    "greenside-422",
+    "maa-1225-02840",
+    "lincoln-at-dilworth-534",
+    "lincoln-at-dilworth-106",
+    "lincoln-at-dilworth-396",
+    "maa-reserve-300b428",
+    "maa-1225-010333",
+    "maa-1225-02513",
+    "maa-1225-02814",
+    "mosaic-south-end-apartments-1-1302",
+    "maa-reserve-300b230",
+    "maa-reserve-200c357",
+    "maa-reserve-300a401",
+    "maa-1225-010232",
+    "maa-reserve-300a303",
+    "maa-reserve-300b139",
     "lincoln-at-dilworth-102",
     "lincoln-at-dilworth-402",
     "lincoln-at-dilworth-530",
-    "maa-1225-010232",
-    "maa-reserve-300b139",
-    "maa-reserve-300a109",
-    "maa-reserve-200c357",
-    "maa-reserve-200d374",
-    "maa-1225-02560",
-    "lincoln-at-dilworth-534",
-    "lincoln-at-dilworth-264",
-    "lincoln-at-dilworth-431",
-    "maa-reserve-300a112",
-    "midtown-205-248",
-    "maa-reserve-300a303",
-    "maa-1225-02513",
-    "maa-1225-02613",
-    "maa-reserve-300b428",
-    "maa-1225-02531",
+    "1100-south-290",
+    "maa-reserve-200c460",
     "maa-1225-010425",
+    "maa-reserve-300a109",
+    "berkshire-dilworth-243",
+    "maa-1225-02560",
+    "maa-1225-010147",
+    "mosaic-south-end-apartments-1-1205",
+    "maa-1225-02613",
+    "lincoln-at-dilworth-431",
     "lincoln-at-dilworth-206",
-    "lincoln-at-dilworth-564"
+    "lincoln-at-dilworth-419",
+    "maa-reserve-300a112",
+    "maa-1225-010115",
+    "mosaic-south-end-apartments-1-1313",
+    "maa-1225-02531",
+    "mosaic-south-end-apartments-2-2304",
+    "midtown-205-521",
+    "maa-reserve-300b431"
   ]
 }

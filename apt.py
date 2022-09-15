@@ -13,7 +13,7 @@ dotenv.load_dotenv()
 
 AREA = 'south-end-charlotte-nc'
 BEDROOMS = 1
-MAX_PRICE = 1650
+MAX_PRICE = 1700
 MIN_SQFT = 600
 BLACKLIST = [
   'Centro Square',
@@ -111,85 +111,88 @@ def get_apts():
   results = []
   for apt in apartments:
     
-    with open('results.json', 'r') as f:
-      existing_keys = json.load(f)['keys']
-      f.close()
-    
-    detail_anchor = apt.find('a', class_='property-link')
-    if not detail_anchor:
-      break
-    detail_url = detail_anchor['href']
-    detail = get_soup(detail_url)
-    
-    name = detail.find(id='propertyName').text.strip()
-    prices = []
-    
-    if name in BLACKLIST:
-      continue
-    
-    print('Fetched details for', name)
-    
-    address = get_text(apt, 'div', 'property-address')
-    carousel = detail.find('div', class_='carouselContent')
-    images = carousel.find_all('li', class_='item')
-    images = [img.find('img')['src'] for img in images]
-    
-    one_beds = detail.find('div', attrs={'data-tab-content-id': 'bed1'})
-    plans = one_beds.find_all('div', class_='pricingGridItem')
-    plans_out = []
-    
-    for plan in plans:
-      plan_name = get_text(plan, 'span', 'modelName')
+    try:
+      with open('results.json', 'r') as f:
+        existing_keys = json.load(f)['keys']
+        f.close()
       
-      units = plan.find_all('li', class_='unitContainer')
-      units_out = []
+      detail_anchor = apt.find('a', class_='property-link')
+      if not detail_anchor:
+        break
+      detail_url = detail_anchor['href']
+      detail = get_soup(detail_url)
       
-      for unit in units:
-        number = get_text(unit, 'div', 'unitColumn column')
-        price = get_text(unit, 'div', 'pricingColumn column')
-        try:
-          price = int(price.replace('$', '').replace(',', ''))
-        except:
-          price = -1
-        sqft = int(get_text(unit, 'div', 'sqftColumn column').replace(',', ''))
-        available = get_text(unit, 'span', 'dateAvailable')
-        
-        if (sqft >= MIN_SQFT and price <= MAX_PRICE):
-          prices.append(price)
-          unit_data = {
-            'number': number,
-            'price': price,
-            'sqft': sqft,
-            'available': available,
-          }
-          units_out.append(unit_data)
-          if (build_unique_key(name, number) not in existing_keys):
-            send_message(name, number, price, sqft, available, detail_url)
-        
+      name = detail.find(id='propertyName').text.strip()
+      prices = []
       
-      if len(units_out) == 0:
+      if name in BLACKLIST:
         continue
+      
+      print('Fetched details for', name)
+      
+      address = get_text(apt, 'div', 'property-address')
+      carousel = detail.find('div', class_='carouselContent')
+      images = carousel.find_all('li', class_='item')
+      images = [img.find('img')['src'] for img in images]
+      
+      one_beds = detail.find('div', attrs={'data-tab-content-id': 'bed1'})
+      plans = one_beds.find_all('div', class_='pricingGridItem')
+      plans_out = []
+      
+      for plan in plans:
+        plan_name = get_text(plan, 'span', 'modelName')
         
-      plans_out.append({
-        'name': plan_name,
-        'units': units_out,
+        units = plan.find_all('li', class_='unitContainer')
+        units_out = []
+        
+        for unit in units:
+          number = get_text(unit, 'div', 'unitColumn column')
+          price = get_text(unit, 'div', 'pricingColumn column')
+          try:
+            price = int(price.replace('$', '').replace(',', ''))
+          except:
+            price = -1
+          sqft = int(get_text(unit, 'div', 'sqftColumn column').replace(',', ''))
+          available = get_text(unit, 'span', 'dateAvailable')
+          
+          if (sqft >= MIN_SQFT and price <= MAX_PRICE):
+            prices.append(price)
+            unit_data = {
+              'number': number,
+              'price': price,
+              'sqft': sqft,
+              'available': available,
+            }
+            units_out.append(unit_data)
+            if (build_unique_key(name, number) not in existing_keys):
+              send_message(name, number, price, sqft, available, detail_url)
+          
+        
+        if len(units_out) == 0:
+          continue
+          
+        plans_out.append({
+          'name': plan_name,
+          'units': units_out,
+        })
+      
+      if len(prices) == 0:
+        continue
+      
+      results.append({
+        'name': name,
+        'address': address,
+        'average_price': round(sum(prices) / len(prices), 2),
+        'median_price': round(sorted(prices)[len(prices) // 2], 2),
+        'min_price': min(prices),
+        'max_price': max(prices),
+        'url': detail_url,
+        'images': images,
+        'plans': plans_out,
       })
+    except Exception as e:
+      print(e)
     
-    if len(prices) == 0:
-      continue
-    
-    results.append({
-      'name': name,
-      'address': address,
-      'average_price': round(sum(prices) / len(prices), 2),
-      'median_price': round(sorted(prices)[len(prices) // 2], 2),
-      'min_price': min(prices),
-      'max_price': max(prices),
-      'url': detail_url,
-      'images': images,
-      'plans': plans_out,
-    })
-  
   return sorted(results, key=lambda x: (x['name'] not in FAVORITES, x['min_price']))
 
 def scrape_data():
@@ -228,6 +231,6 @@ def scrape_data():
 if __name__ == '__main__':
   scrape_data()
   # webbrowser.open('http://127.0.0.1:5500/index.html')
-  schedule.every(4).hours.do(scrape_data)
-  while True:
-    schedule.run_pending()
+  # schedule.every(4).hours.do(scrape_data)
+  # while True:
+  #   schedule.run_pending()
