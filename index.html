@@ -74,7 +74,15 @@
 
           <template v-for="apt in latest.apartments">
             <div class="d-flex flex-column gap-1">
-              <a class="text-h6" :href="apt.url" target="_blank">{{ apt.name }}</a>
+              <div class="d-flex align-center">
+                <div class="d-flex flex-column">
+                  <a class="text-h6" :href="apt.url" target="_blank">{{ apt.name }}</a>
+                  <p class="subtitle-2">{{ apt.address }}</p>
+                </div>
+                <v-btn icon :href="`https://www.google.com/maps/search/${apt.name}`" target="_blank">
+                  <v-icon>mdi-directions</v-icon>
+                </v-btn>
+              </div>
               <stats :source="apt"></stats>
               <h6 class="text-h6">Available Units</h6>
               <div class="d-flex gap-1">
@@ -131,18 +139,18 @@
         },
       },
       template: `
-      <div class="d-flex gap-1">
+      <div class="d-flex gap-1" v-if="source.min_price != source.max_price">
         <div>
           <h5 class="text-h5">{{source.min_price | currency}}</h5>
           <p class="text-subtitle-2 mb-0">Minimum {{text}}</p>
         </div>
         <div>
-          <h5 class="text-h5">{{source.max_price | currency}}</h5>
-          <p class="text-subtitle-2 mb-0">Maximum {{text}}</p>
-        </div>
-        <div>
           <h5 class="text-h5">{{source.average_price | currency}}</h5>
           <p class="text-subtitle-2 mb-0">Average {{text}}</p>
+        </div>
+        <div>
+          <h5 class="text-h5">{{source.max_price | currency}}</h5>
+          <p class="text-subtitle-2 mb-0">Maximum {{text}}</p>
         </div>
       </div>
       `
@@ -248,7 +256,7 @@
       },
       mounted() {
         const points = [];
-        const snapshot = this.data.snapshots[Object.keys(this.data.snapshots)[0]];
+        const snapshot = this.data.snapshots[Object.keys(this.data.snapshots).sort().reverse()[0]];
         snapshot.apartments.forEach(apt => {
           apt.plans.forEach(plan => {
             plan.units.forEach(unit => {
@@ -330,15 +338,19 @@
         results: null
       }),
       computed: {
-        latest() {
+        latestTimestamp() {
           if (!this.results) return null;
-          const entries = Object.keys(this.results.snapshots).sort();
-          return this.results.snapshots[entries[0]];
+          const entries = Object.keys(this.results.snapshots).sort().reverse();
+          return entries[0];
+        },
+        latest() {
+          if (!this.latestTimestamp) return null;
+          return this.results.snapshots[this.latestTimestamp];
         },
         lastUpdated() {
-          const entries = Object.keys(this.results.snapshots).sort().reverse();
-          const time = moment(entries[0]).format('MMMM Do YYYY, h:mm:ss a');
-          return `${time} (${moment(entries[0]).fromNow()})`;
+          if (!this.latestTimestamp) return '';
+          const time = moment(this.latestTimestamp).format('MMMM Do YYYY, h:mm:ss a');
+          return `${time} (${moment(this.latestTimestamp).fromNow()})`;
         }
       },
       mounted() {

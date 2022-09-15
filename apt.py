@@ -7,26 +7,28 @@ import webbrowser
 import requests
 import dotenv
 import os
+from time import sleep
 
 dotenv.load_dotenv()
 
 AREA = 'south-end-charlotte-nc'
 BEDROOMS = 1
-MAX_PRICE = 1600
+MAX_PRICE = 1650
 MIN_SQFT = 600
 BLACKLIST = [
   'Centro Square',
   'Timber Creek',
   'Arbor Village',
   'Presley Uptown',
-  'MAA Reserve',
-  'MAA 1225',
+  # 'MAA Reserve',
+  # 'MAA 1225',
   'MAA Gateway',
   'ARIUM FreeMoreWest',
   'Arlo',
   'The Bryant Apartments',
   'The Griff',
   'Gateway West',
+  'Asbury Flats',
 ]
 FAVORITES = []
 
@@ -63,31 +65,35 @@ def get_text(soup, tag, class_):
   return None
 
 def send_message(name, number, price, sqft, available, url):
-  print('Sending message for', name, number)
-  message = f'New apartment available at {name}! {number} is available for ${price} ({sqft} sqft) and is available {available}. See more at {url}'
-  print(message)
+  try:
+    print('Sending message for', name, number)
+    message = f'New apartment available at {name}! {number} is available for ${price} ({sqft} sqft) and is available {available}. See more at {url}'
+    print(message)
 
-  request_url = "https://u7fsepk6od5wfke1whpgl6vfdj3kbmyp.ui.nabu.casa/api/services/notify/mobile_app_pixel_6_pro"
-  headers = {
-      "Authorization": f"Bearer {os.getenv('HA_TOKEN')}",
-      "content-type": "application/json",
-  }
-  body = {
-    "message": message,
-    "title": "New Apartment Available!",
-    # Tap action open url in chrome
-    "data": {
-      "actions": [
-        {
-          "action": "URI",
-          "title": "View listing",
-          "uri": url, 
-        } 
-      ]
-    },
-  }
-  r = requests.post(request_url, headers=headers, json=body)
-  print(r.text)
+    request_url = "https://u7fsepk6od5wfke1whpgl6vfdj3kbmyp.ui.nabu.casa/api/services/notify/mobile_app_pixel_6_pro"
+    headers = {
+        "Authorization": f"Bearer {os.getenv('HA_TOKEN')}",
+        "content-type": "application/json",
+    }
+    body = {
+      "message": message,
+      "title": "New Apartment Available!",
+      # Tap action open url in chrome
+      "data": {
+        "actions": [
+          {
+            "action": "URI",
+            "title": "View listing",
+            "uri": url, 
+          } 
+        ]
+      },
+    }
+    r = requests.post(request_url, headers=headers, json=body)
+    print(r.text)
+    sleep(0.5)
+  except Exception as e:
+    print(e)
 
 # Scrape apartments.com for apartments
 def get_apts():
@@ -150,19 +156,20 @@ def get_apts():
         
         if (sqft >= MIN_SQFT and price <= MAX_PRICE):
           prices.append(price)
-          units_out.append({
+          unit_data = {
             'number': number,
             'price': price,
             'sqft': sqft,
             'available': available,
-          })
+          }
+          units_out.append(unit_data)
           if (build_unique_key(name, number) not in existing_keys):
             send_message(name, number, price, sqft, available, detail_url)
         
       
       if len(units_out) == 0:
         continue
-      
+        
       plans_out.append({
         'name': plan_name,
         'units': units_out,
@@ -220,7 +227,7 @@ def scrape_data():
   
 if __name__ == '__main__':
   scrape_data()
-  webbrowser.open('http://127.0.0.1:5500/index.html')
+  # webbrowser.open('http://127.0.0.1:5500/index.html')
   schedule.every(4).hours.do(scrape_data)
   while True:
     schedule.run_pending()
