@@ -164,6 +164,7 @@ def get_apts():
               'available': available,
             }
             units_out.append(unit_data)
+            units_out.sort(key=lambda x: x['price'])
             if (build_unique_key(name, number) not in existing_keys):
               send_message(name, number, price, sqft, available, detail_url)
           
