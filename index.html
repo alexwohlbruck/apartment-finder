@@ -51,7 +51,15 @@
       grid-template-columns: repeat(2, 1fr);
     }
 
-    .tile {}
+    .overflow-x-auto {
+      overflow-x: auto;
+    }
+
+    .unit {
+      min-width: 9em;
+      display: inline-block;
+
+    }
   </style>
 </head>
 
@@ -91,9 +99,9 @@
               </div>
               <stats :source="apt"></stats>
               <h6 class="text-h6">Available Units</h6>
-              <div class="d-flex gap-1">
+              <div class="overflow-x-auto">
                 <template v-for="plan in apt.plans">
-                  <v-card v-for="unit in plan.units" light>
+                  <v-card v-for="unit in plan.units" class="unit" light>
                     <v-card-title>{{ unit.price | currency }}</v-card-title>
                     <v-card-subtitle class="pb-0 text-subtitle-2">
                       Unit {{unit.number}} &bull; Available {{ unit.available }}
