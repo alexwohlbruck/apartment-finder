@@ -67,11 +67,13 @@
             <stats :source="snapshot" :overall="true"></stats>
           </div>
 
-          <v-checkbox v-model="absoluteScale" label="Absolute scale"></v-checkbox>
-          <div class="d-flex gap-1">
-            <minmaxavg :data="results" :absolute-scale="absoluteScale" class="flex-1"></minmaxavg>
-            <pricevssqft :data="results" :chosen-snapshot="chosenSnapshot" :absolute-scale="absoluteScale"
-              class="flex-1"></pricevssqft>
+          <div>
+            <v-checkbox v-model="absoluteScale" label="Absolute scale"></v-checkbox>
+            <div class="d-flex gap-1">
+              <minmaxavg :data="results" :absolute-scale="absoluteScale" class="flex-1"></minmaxavg>
+              <pricevssqft :data="results" :chosen-snapshot="chosenSnapshot" :absolute-scale="absoluteScale"
+                class="flex-1"></pricevssqft>
+            </div>
           </div>
 
           <p class="text-caption font-italic">Last updated {{lastUpdated}}</p>
@@ -119,6 +121,34 @@
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
   <script src="https://unpkg.com/vue-chartjs@3.5.1/dist/vue-chartjs.js"></script>
   <script>
+
+    const colors = [
+      'red',
+      'orangered',
+      'yellow',
+      'green',
+      'cyan',
+      'blue',
+      'purple',
+      'lime',
+      'teal',
+      'indigo',
+      'deep-purple',
+      'deep-orange',
+      'pink',
+    ];
+    const used = [];
+    const colorFromName = (name) => {
+      // Generate unique color for each name. If all colors are used, start over.
+      const index = used.indexOf(name);
+      if (index === -1) {
+        const color = colors[used.length % colors.length];
+        used.push(name);
+        return color;
+      }
+      return colors[index % colors.length];
+    };
+
     Vue.filter('currency', function (value) {
       if (typeof value !== "number") {
         return value;
@@ -292,33 +322,39 @@
       },
       methods: {
         render() {
-          const points = [];
+          const groups = [];
           const snapshot = this.data.snapshots[this.chosenSnapshot || Object.keys(this.data.snapshots).sort().reverse()[0]];
           snapshot.apartments.forEach(apt => {
+            const group = {
+              name: apt.name,
+              color: colorFromName(apt.name),
+              data: [],
+            };
             apt.plans.forEach(plan => {
               plan.units.forEach(unit => {
-                points.push({
+                group.data.push({
                   x: unit.sqft,
                   y: unit.price,
                   label: `${apt.name} - ${plan.name} - ${unit.number}`,
                 });
               });
             });
+            groups.push(group);
           });
 
           // add labels
           this.renderChart(
             {
-              datasets: [
-                {
-                  label: "Price vs. Size for current snapshot",
-                  borderColor: "#2F4DD6",
-                  data: points,
+              datasets: groups.map((group, index) => {
+                return {
+                  label: group.name,
+                  borderColor: group.color,
+                  data: group.data,
                   pointRadius: 3,
                   pointHoverRadius: 8,
-                  pointBackgroundColor: "#2F4DD6",
-                },
-              ],
+                  pointBackgroundColor: group.color,
+                };
+              }),
             },
             {
               responsive: true,
