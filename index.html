@@ -67,9 +67,11 @@
             <stats :source="snapshot" :overall="true"></stats>
           </div>
 
+          <v-checkbox v-model="absoluteScale" label="Absolute scale"></v-checkbox>
           <div class="d-flex gap-1">
-            <minmaxavg :data="results" class="flex-1"></minmaxavg>
-            <pricevssqft :data="results" :chosen-snapshot="chosenSnapshot" class="flex-1"></pricevssqft>
+            <minmaxavg :data="results" :absolute-scale="absoluteScale" class="flex-1"></minmaxavg>
+            <pricevssqft :data="results" :chosen-snapshot="chosenSnapshot" :absolute-scale="absoluteScale"
+              class="flex-1"></pricevssqft>
           </div>
 
           <p class="text-caption font-italic">Last updated {{lastUpdated}}</p>
@@ -166,13 +168,18 @@
       extends: VueChartJs.Line,
       props: {
         data: Object,
+        absoluteScale: Boolean,
+      },
+      watch: {
+        absoluteScale: function () {
+          this.render();
+        },
       },
       mounted() {
         this.render();
       },
       methods: {
         render() {
-          console.log('render')
           const min = [];
           const max = [];
           const average = [];
@@ -238,6 +245,9 @@
                         quarter: "MMM YYYY",
                       }
                     },
+                    ticks: {
+                      beginAtZero: this.absoluteScale,
+                    },
                   },
                 ],
                 yAxes: [
@@ -250,7 +260,8 @@
                           minimumFractionDigits: 0,
                           maximumFractionDigits: 0
                         });
-                      }
+                      },
+                      beginAtZero: this.absoluteScale,
                     }
                   }
                 ]
@@ -266,6 +277,7 @@
       props: {
         data: Object,
         chosenSnapshot: String,
+        absoluteScale: Boolean,
       },
       mounted() {
         this.render();
@@ -273,7 +285,10 @@
       watch: {
         chosenSnapshot: function () {
           this.render();
-        }
+        },
+        absoluteScale: function () {
+          this.render();
+        },
       },
       methods: {
         render() {
@@ -326,7 +341,8 @@
                           minimumFractionDigits: 0,
                           maximumFractionDigits: 0
                         })} sqft`;
-                      }
+                      },
+                      beginAtZero: this.absoluteScale,
                     },
                   },
                 ],
@@ -347,6 +363,7 @@
                           maximumFractionDigits: 0
                         });
                       },
+                      beginAtZero: this.absoluteScale,
                     },
                   },
                 ],
@@ -363,6 +380,7 @@
       data: () => ({
         results: null,
         chosenSnapshot: null,
+        absoluteScale: false,
       }),
       computed: {
         latestTimestamp() {
