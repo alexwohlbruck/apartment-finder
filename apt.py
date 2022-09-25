@@ -11,26 +11,12 @@ from time import sleep
 
 dotenv.load_dotenv()
 
-AREA = 'south-end-charlotte-nc'
-BEDROOMS = 1
-MAX_PRICE = 1700
-MIN_SQFT = 600
-BLACKLIST = [
-  'Centro Square',
-  'Timber Creek',
-  'Arbor Village',
-  'Presley Uptown',
-  # 'MAA Reserve',
-  # 'MAA 1225',
-  'MAA Gateway',
-  'ARIUM FreeMoreWest',
-  'Arlo',
-  'The Bryant Apartments',
-  'The Griff',
-  'Gateway West',
-  'Asbury Flats',
-]
-FAVORITES = []
+AREA = os.getenv('AREA')
+BEDROOMS = os.getenv('BEDROOMS')
+MAX_PRICE = os.getenv('MAX_PRICE')
+MIN_SQFT = os.getenv('MIN_SQFT')
+BLACKLIST = os.getenv('BLACKLIST').split(',')
+FAVORITES = os.getenv('FAVORITES').split(',')
 
 http = requests.session()
 http.headers.update({
