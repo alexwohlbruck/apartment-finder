@@ -12,9 +12,9 @@ from time import sleep
 dotenv.load_dotenv()
 
 AREA = os.getenv('AREA')
-BEDROOMS = os.getenv('BEDROOMS')
-MAX_PRICE = os.getenv('MAX_PRICE')
-MIN_SQFT = os.getenv('MIN_SQFT')
+BEDROOMS = int(os.getenv('BEDROOMS'))
+MAX_PRICE = int(os.getenv('MAX_PRICE'))
+MIN_SQFT = int(os.getenv('MIN_SQFT'))
 BLACKLIST = os.getenv('BLACKLIST').split(',')
 FAVORITES = os.getenv('FAVORITES').split(',')
 
