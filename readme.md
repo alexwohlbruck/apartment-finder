@@ -4,3 +4,4 @@ Scrapes Apartments.com listings to find the best match for your budget and prefe
 ### Screenshots
 ![Charts](img/charts.png)
 ![Units](img/units.png)
+![Notifications](img/notifs.jpg)
