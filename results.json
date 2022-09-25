@@ -21232,24 +21232,96 @@
         }
       ]
     },
-    "2022-09-22T20:03:06.948354": {
-      "max_price": 1693,
-      "min_price": 1559,
-      "average_price": 1661.53,
-      "median_price": 1683,
+    "2022-09-25T13:05:01.129605": {
+      "max_price": 1700,
+      "min_price": 1446,
+      "average_price": 1662.67,
+      "median_price": 1681,
       "apartments": [
+        {
+          "name": "Berkshire Dilworth",
+          "address": "1351 E Morehead St, Charlotte, NC 28204",
+          "average_price": 1628.0,
+          "median_price": 1681,
+          "min_price": 1446,
+          "max_price": 1700,
+          "url": "https://www.apartments.com/berkshire-dilworth-charlotte-nc/k86ytbc/",
+          "images": [
+            "https://images1.apartments.com/i2/dlBj_MNYoeC-SbKzGYvdzj87TUyA3rfU0qcd3AFSBE4/111/berkshire-dilworth-charlotte-nc-primary-photo.jpg?p=1",
+            "https://images1.apartments.com/m2/rzzsjDeqke8lJLQG4Owbhl4Oxw7uj89fYCjcb--vcu4/H330W495/berkshire-dilworth-charlotte-nc-map-image-of-the-property.jpg?p=1",
+            "https://images1.apartments.com/i2/Qf_IyhSm8-o0op8LT_zkFdYabDYVb0c_ghJNwOwS80g/117/berkshire-dilworth-charlotte-nc-building-photo.jpg?p=1"
+          ],
+          "plans": [
+            {
+              "name": "Iverson ADA accessible",
+              "units": [
+                {
+                  "number": "243",
+                  "price": 1446,
+                  "sqft": 631,
+                  "available": "Now"
+                }
+              ]
+            },
+            {
+              "name": "Iverson",
+              "units": [
+                {
+                  "number": "461",
+                  "price": 1628,
+                  "sqft": 631,
+                  "available": "Now"
+                },
+                {
+                  "number": "543",
+                  "price": 1681,
+                  "sqft": 631,
+                  "available": "Now"
+                }
+              ]
+            },
+            {
+              "name": "Lexington",
+              "units": [
+                {
+                  "number": "451",
+                  "price": 1682,
+                  "sqft": 690,
+                  "available": "Now"
+                },
+                {
+                  "number": "257",
+                  "price": 1700,
+                  "sqft": 690,
+                  "available": "Nov. 5"
+                }
+              ]
+            },
+            {
+              "name": "Kingston",
+              "units": [
+                {
+                  "number": "526",
+                  "price": 1631,
+                  "sqft": 652,
+                  "available": "Oct. 26"
+                }
+              ]
+            }
+          ]
+        },
         {
           "name": "Lincoln at Dilworth",
           "address": "905 Kenilworth Ave, Charlotte, NC 28204",
-          "average_price": 1624.11,
-          "median_price": 1612,
+          "average_price": 1628.09,
+          "median_price": 1639,
           "min_price": 1559,
           "max_price": 1677,
           "url": "https://www.apartments.com/lincoln-at-dilworth-charlotte-nc/vvj4cmf/",
           "images": [
-            "https://images1.apartments.com/i2/jV8n3W4M51ehIm29qf8k1dwpqLSbf-svRtlICr2LfCI/111/lincoln-at-dilworth-charlotte-nc-primary-photo.jpg?p=1",
+            "https://images1.apartments.com/i2/6EsPoSogLhFcQnJWdZl0wt171EcgH7TWT_RZR2_Wr7k/111/lincoln-at-dilworth-charlotte-nc-primary-photo.png?p=1",
             "https://images1.apartments.com/m2/0XwepeDblmHUlWbtOrNJ5FkurPi8BcFDA_j_M8PjICo/H330W495/lincoln-at-dilworth-charlotte-nc-map-image-of-the-property.jpg?p=1",
-            "https://images1.apartments.com/i2/J8AQyLL382sojj15nd6cF9LZBYuabOsFg1K8xf9RbDY/117/lincoln-at-dilworth-charlotte-nc-1br-1ba.jpg?p=1"
+            "https://images1.apartments.com/i2/oMmYs_HmV_KQM-Qmy16QCdu1PQj9HYTwOkZMR61QkYw/117/lincoln-at-dilworth-charlotte-nc-building-photo.jpg?p=1"
           ],
           "plans": [
             {
@@ -21260,6 +21332,12 @@
                   "price": 1559,
                   "sqft": 685,
                   "available": "Now"
+                },
+                {
+                  "number": "440",
+                  "price": 1639,
+                  "sqft": 685,
+                  "available": "Oct. 23"
                 }
               ]
             },
@@ -21335,16 +21413,27 @@
                   "available": "Now"
                 }
               ]
+            },
+            {
+              "name": "A5b",
+              "units": [
+                {
+                  "number": "420",
+                  "price": 1653,
+                  "sqft": 725,
+                  "available": "Oct. 22"
+                }
+              ]
             }
           ]
         },
         {
           "name": "Fountains Southend Apartment Homes",
           "address": "126 New Bern St, Charlotte, NC 28203",
-          "average_price": 1646.0,
-          "median_price": 1650,
-          "min_price": 1585,
-          "max_price": 1675,
+          "average_price": 1651.25,
+          "median_price": 1680,
+          "min_price": 1590,
+          "max_price": 1680,
           "url": "https://www.apartments.com/fountains-southend-apartment-homes-charlotte-nc/vyb5yye/",
           "images": [
             "https://images1.apartments.com/i2/fyHvSaowLzjHGIJ242ypJU9nSJPPtsRNzR-K3t7W_Ek/111/fountains-southend-apartment-homes-charlotte-nc-spacious-living-room-with-ceiling-fan.jpg?p=1",
@@ -21357,7 +21446,7 @@
               "units": [
                 {
                   "number": "120-2-202",
-                  "price": 1585,
+                  "price": 1590,
                   "sqft": 715,
                   "available": "Now"
                 }
@@ -21367,26 +21456,20 @@
               "name": "Elizabeth 2",
               "units": [
                 {
-                  "number": "120-2-203",
-                  "price": 1645,
-                  "sqft": 700,
-                  "available": "Now"
-                },
-                {
                   "number": "120-2-104",
-                  "price": 1650,
+                  "price": 1655,
                   "sqft": 700,
                   "available": "Nov. 24"
                 },
                 {
                   "number": "120-2-311",
-                  "price": 1675,
+                  "price": 1680,
                   "sqft": 700,
                   "available": "Nov. 8"
                 },
                 {
                   "number": "120-2-216",
-                  "price": 1675,
+                  "price": 1680,
                   "sqft": 700,
                   "available": "Nov. 22"
                 }
@@ -21395,12 +21478,45 @@
           ]
         },
         {
+          "name": "MAA South Line",
+          "address": "222 E Bland St, Charlotte, NC 28203",
+          "average_price": 1667.5,
+          "median_price": 1690,
+          "min_price": 1645,
+          "max_price": 1690,
+          "url": "https://www.apartments.com/maa-south-line-charlotte-nc/xsp231p/",
+          "images": [
+            "https://images1.apartments.com/i2/jXcBZOFFlQGU9_FvRukNnV5BGw-y5tmTrp4igcavQes/111/maa-south-line-charlotte-nc-primary-photo.jpg?p=1",
+            "https://images1.apartments.com/m2/FOUZ-iuhgvuaawI2qVKklPnL5iW6ArvojxVOw5nr3Lg/H330W495/maa-south-line-charlotte-nc-map-image-of-the-property.jpg?p=1",
+            "https://images1.apartments.com/i2/bML-QarvJVuRkeG3KYTsCCQgUrZxumxRk1QumMUORhM/117/maa-south-line-charlotte-nc-building-photo.jpg?p=1"
+          ],
+          "plans": [
+            {
+              "name": "Traditional 1x1 649 SF",
+              "units": [
+                {
+                  "number": "125",
+                  "price": 1645,
+                  "sqft": 649,
+                  "available": "Now"
+                },
+                {
+                  "number": "362",
+                  "price": 1690,
+                  "sqft": 649,
+                  "available": "Sep. 29"
+                }
+              ]
+            }
+          ]
+        },
+        {
           "name": "MAA 1225",
           "address": "1225 S Church St, Charlotte, NC 28203",
-          "average_price": 1664.25,
-          "median_price": 1683,
-          "min_price": 1633,
-          "max_price": 1693,
+          "average_price": 1673.0,
+          "median_price": 1668,
+          "min_price": 1653,
+          "max_price": 1698,
           "url": "https://www.apartments.com/maa-1225-charlotte-nc/0pyg4z0/",
           "images": [
             "https://images1.apartments.com/i2/Ibisfl3VXOiD0-Skk9PVAUNqaeCfxNSvD00JIGBwr3c/111/maa-1225-charlotte-nc-primary-photo.jpg?p=1",
@@ -21413,76 +21529,21 @@
               "units": [
                 {
                   "number": "010333",
-                  "price": 1633,
+                  "price": 1653,
                   "sqft": 736,
                   "available": "Oct. 4"
                 },
                 {
                   "number": "010325",
-                  "price": 1648,
+                  "price": 1668,
                   "sqft": 755,
                   "available": "Oct. 15"
                 },
                 {
                   "number": "010425",
-                  "price": 1683,
+                  "price": 1698,
                   "sqft": 755,
                   "available": "Nov. 5"
-                }
-              ]
-            },
-            {
-              "name": "Milan II",
-              "units": [
-                {
-                  "number": "02560",
-                  "price": 1693,
-                  "sqft": 808,
-                  "available": "Nov. 1"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "name": "Berkshire Dilworth",
-          "address": "1351 E Morehead St, Charlotte, NC 28204",
-          "average_price": 1664.33,
-          "median_price": 1674,
-          "min_price": 1643,
-          "max_price": 1676,
-          "url": "https://www.apartments.com/berkshire-dilworth-charlotte-nc/k86ytbc/",
-          "images": [
-            "https://images1.apartments.com/i2/dlBj_MNYoeC-SbKzGYvdzj87TUyA3rfU0qcd3AFSBE4/111/berkshire-dilworth-charlotte-nc-primary-photo.jpg?p=1",
-            "https://images1.apartments.com/m2/rzzsjDeqke8lJLQG4Owbhl4Oxw7uj89fYCjcb--vcu4/H330W495/berkshire-dilworth-charlotte-nc-map-image-of-the-property.jpg?p=1",
-            "https://images1.apartments.com/i2/Qf_IyhSm8-o0op8LT_zkFdYabDYVb0c_ghJNwOwS80g/117/berkshire-dilworth-charlotte-nc-building-photo.jpg?p=1"
-          ],
-          "plans": [
-            {
-              "name": "Iverson",
-              "units": [
-                {
-                  "number": "561",
-                  "price": 1643,
-                  "sqft": 631,
-                  "available": "Now"
-                },
-                {
-                  "number": "461",
-                  "price": 1674,
-                  "sqft": 631,
-                  "available": "Now"
-                }
-              ]
-            },
-            {
-              "name": "Kingston",
-              "units": [
-                {
-                  "number": "526",
-                  "price": 1676,
-                  "sqft": 652,
-                  "available": "Oct. 26"
                 }
               ]
             }
@@ -21527,12 +21588,39 @@
           ]
         },
         {
+          "name": "Park and Kingston",
+          "address": "125 W Park Ave, Charlotte, NC 28203",
+          "average_price": 1680.0,
+          "median_price": 1680,
+          "min_price": 1680,
+          "max_price": 1680,
+          "url": "https://www.apartments.com/park-and-kingston-charlotte-nc/8x1zxr3/",
+          "images": [
+            "https://images1.apartments.com/i2/qHiP86Weiws4FN4lmObhbwrtFVDNGDmUNydu-S7X8cg/111/park-and-kingston-charlotte-nc-primary-photo.jpg?p=1",
+            "https://images1.apartments.com/m2/Nr0utffxReoc5T9UDO-VXwpq4SgFIQkcvBOzgAlu2_w/H330W495/park-and-kingston-charlotte-nc-map-image-of-the-property.jpg?p=1",
+            "https://images1.apartments.com/i2/M-O4jaS8SAAcM9-ydaI-ChfSQa1ALn34B9Z-dS4qe8g/117/park-and-kingston-charlotte-nc-building-photo.jpg?p=1"
+          ],
+          "plans": [
+            {
+              "name": "Camden 1 Bedroom 1 Bath",
+              "units": [
+                {
+                  "number": "K-329",
+                  "price": 1680,
+                  "sqft": 664,
+                  "available": "Nov. 25"
+                }
+              ]
+            }
+          ]
+        },
+        {
           "name": "Mosaic South End Apartments",
           "address": "1312 S College St, Charlotte, NC 28203",
-          "average_price": 1688.0,
-          "median_price": 1688,
-          "min_price": 1688,
-          "max_price": 1688,
+          "average_price": 1691.0,
+          "median_price": 1698,
+          "min_price": 1684,
+          "max_price": 1698,
           "url": "https://www.apartments.com/mosaic-south-end-apartments-charlotte-nc/5b2t3vq/",
           "images": [
             "https://images1.apartments.com/i2/mERiQZd0b-Ff1bBJWGHGs57jMxH5yaCzIRkonDzlyS4/111/mosaic-south-end-apartments-charlotte-nc-primary-photo.jpg?p=1",
@@ -21545,9 +21633,20 @@
               "units": [
                 {
                   "number": "1-1313",
-                  "price": 1688,
+                  "price": 1684,
                   "sqft": 819,
                   "available": "Oct. 25"
+                }
+              ]
+            },
+            {
+              "name": "Destiny",
+              "units": [
+                {
+                  "number": "1-1205",
+                  "price": 1698,
+                  "sqft": 715,
+                  "available": "Nov. 17"
                 }
               ]
             }
@@ -21557,38 +21656,10 @@
     }
   },
   "keys": [
-    "lincoln-at-dilworth-366",
-    "fountains-southend-apartment-homes-120-2-203",
-    "lincoln-at-dilworth-106",
-    "lincoln-at-dilworth-564",
-    "lincoln-at-dilworth-431",
-    "berkshire-dilworth-451",
-    "maa-1225-010333",
-    "maa-1225-010325",
-    "mosaic-south-end-apartments-2-2413",
-    "lincoln-at-dilworth-102",
-    "fountains-southend-apartment-homes-120-2-311",
-    "berkshire-dilworth-561",
-    "midtown-205-540",
-    "mosaic-south-end-apartments-1-1313",
-    "lincoln-at-dilworth-206",
+    "berkshire-dilworth-243",
     "mosaic-south-end-apartments-1-1205",
-    "mosaic-south-end-apartments-1-1302",
     "fountains-southend-apartment-homes-120-2-216",
-    "berkshire-dilworth-257",
-    "berkshire-dilworth-543",
-    "lincoln-at-dilworth-130",
-    "maa-1225-02560",
-    "mosaic-south-end-apartments-1-1108",
-    "lincoln-at-dilworth-264",
-    "midtown-205-221",
-    "fountains-southend-apartment-homes-120-2-202",
-    "berkshire-dilworth-223",
-    "fountains-southend-apartment-homes-120-2-104",
-    "berkshire-dilworth-526",
-    "penrose-254",
-    "maa-1225-010425",
-    "berkshire-dilworth-461",
-    "lincoln-at-dilworth-402"
+    "maa-1225-010325",
+    "mosaic-south-end-apartments-1-1313"
   ]
 }

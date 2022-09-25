@@ -32,7 +32,8 @@ pip install -r requirements.txt
     7. Copy the token for later
 5. Create a .env file and add your Home Assistant token
 ```bash
-HA_TOKEN=YOUR_TOKEN_HERE
+HA_URL=YOUR_HOME_ASSISTANT_URL
+HA_TOKEN=YOUR_HOME_ASSISTANT_TOKEN
 AREA=south-end-charlotte-nc # Get this from URL of an apartments.com search
 BEDROOMS=1
 MAX_PRICE=1700

@@ -56,7 +56,7 @@ def send_message(name, number, price, sqft, available, url):
     message = f'New apartment available at {name}! {number} is available for ${price} ({sqft} sqft) and is available {available}. See more at {url}'
     print(message)
 
-    request_url = "https://u7fsepk6od5wfke1whpgl6vfdj3kbmyp.ui.nabu.casa/api/services/notify/mobile_app_pixel_6_pro"
+    request_url = os.getenv("HA_URL") + "/api/services/notify/mobile_app_pixel_6_pro"
     headers = {
         "Authorization": f"Bearer {os.getenv('HA_TOKEN')}",
         "content-type": "application/json",
