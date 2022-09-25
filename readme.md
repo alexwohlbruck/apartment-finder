@@ -1,6 +1,11 @@
 # Apartment finder
 Scrapes Apartments.com listings to find the best match for your budget and preferences.
 
+## Screenshots
+![Charts](img/charts.png)
+![Units](img/units.png)
+![Notifications](img/notifs.jpg)
+
 ## Install and run
 ### Requirements
 - Python 3
@@ -78,8 +83,3 @@ FAVORITES=Fountains Southend Apartment Homes
     ```
 
 7. To view the results, you will need to load your webpage with a local server. The [VS Code Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension works well for this. Open the `index.html` file in VS code and click the "Go Live" button in the bottom right corner. The page will refresh automatically when the script updates the data.
-
-## Screenshots
-![Charts](img/charts.png)
-![Units](img/units.png)
-![Notifications](img/notifs.jpg)
