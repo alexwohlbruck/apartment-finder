@@ -45,6 +45,7 @@ FAVORITES=Fountains Southend Apartment Homes
 
 6. Create a cron job to run the script on an interval
     1. Create a shell script to execute the python script
+   
     `/Users/alexw/Scripts/apartment.sh`:
     ```sh
     #!/bin/sh
@@ -53,7 +54,8 @@ FAVORITES=Fountains Southend Apartment Homes
     python3 apt.py
     ```
 
-    2. (Mac only) Create a LaunchAgent plist to run the script on an interval
+    1. (Mac only) Create a LaunchAgent plist to run the script on an interval
+   
     `/Library/LaunchAgents/local.apartment.plist`:
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -72,7 +74,7 @@ FAVORITES=Fountains Southend Apartment Homes
     </plist>
     ```
 
-    3. Activate the LaunchAgent without reboot:
+    1. Activate the LaunchAgent without reboot:
     ```bash
     launchctl load /Library/LaunchAgents/local.apartment.plist
     ```
