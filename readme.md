@@ -66,10 +66,10 @@ FAVORITES=Fountains Southend Apartment Homes
             <key>Label</key>
             <string>local.apartment</string>
             <key>ProgramArguments</key>
-      <array>
-              <string>/Users/alexw/Scripts/apartment.sh</string> <!-- path to shell script -->
+            <array>
+                <string>/Users/alexw/Scripts/apartment.sh</string> <!-- path to shell script -->
             </array>
-      <key>StartInterval</key>
+            <key>StartInterval</key>
             <integer>14400</integer> <!-- every 4 hours -->
         </dict>
     </plist>
